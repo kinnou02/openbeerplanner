@@ -30,7 +30,7 @@ def list():
 	
 	
 @app.route('/fdr/<type>')
-def list(type):
+def fdr(type):
     amenities = ws.get_amenity(ws.Coord(48.84680, 2.37628))
     amenities = ws.sort_and_filter(amenities)
     logging.debug(len(amenities))
