@@ -26,7 +26,7 @@
         <div class="carousel-inner">
 		
 		{% for item in amenities %}
-		{% if loop.index == 5 %}
+		{% if loop.index == 1 %}
 			<div class="item active">
 		{% else %}
 			<div class="item">
@@ -41,18 +41,18 @@
 				</div>
 				<hr>
 					<div class="center">
-						<!-- section piéton-->
+						<!-- section piÃ©ton-->
 						<img class="img" src="../static/img/pieton.jpg"/>
-						<!-- séparateur aller-->
+						<!-- sÃ©parateur aller-->
 						<img class="img" src="../static/img/arrow-right.jpg"/>
 						<!-- section TC-->
 						<img class="img" src="../static/img/bus.jpg"/>
-						<!-- séparateur aller-->
+						<!-- sÃ©parateur aller-->
 						<img class="img" src="../static/img/arrow-right.jpg"/>
-						<!-- section piéton-->
+						<!-- section piÃ©ton-->
 						<img class="img" src="../static/img/pieton.jpg"/>
 						<p>
-							Aller - Durée: xx minutes
+							Aller - DurÃ©e: xx minutes
 						</p>
 					</div>
 				<hr>
@@ -61,11 +61,11 @@
 						<div class="center">
 							{% if item.type == 'bar' or item.type == 'pub' %}
 							<p>
-								Type de bières
+								Type de biÃ¨res
 								<ul>
-									<li>bière A</li>
-									<li>bière B</li>
-									<li>bière C</li>
+									<li>biÃ¨re A</li>
+									<li>biÃ¨re B</li>
+									<li>biÃ¨re C</li>
 								</ul>
 							</p>
 							{% endif %}
@@ -73,8 +73,8 @@
 							<p>
 								Type de trucs pas bons
 								<ul>
-									<li>frites sèches</li>
-									<li>coca tiède</li>
+									<li>frites sÃ¨ches</li>
+									<li>coca tiÃ¨de</li>
 									<li>cheeseburgers mous</li>
 								</ul>
 							</p>
@@ -83,7 +83,7 @@
 							<p>
 								Type de trucs pas bons
 								<ul>
-									<li>entrée</li>
+									<li>entrÃ©e</li>
 									<li>plats</li>
 									<li>desserts</li>
 								</ul>
@@ -99,30 +99,30 @@
 							</p>
 							{% endif %}
 							<p>
-								Horaires ouvertures: hhHmm à hhHmm
+								Horaires ouvertures: hhHmm Ã  hhHmm
 							</p>
 							{% if item.type == 'bar' or item.type == 'pub' %}
 							<p>
-								Happy Hour: hhHmm à hhHmm
+								Happy Hour: hhHmm Ã  hhHmm
 							</p>
 							{% endif %}
 						</div>
-						<a href="map.html" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
+						<a href="map.html" class="btn btn-block btn-primary btn-lg">Voir le dÃ©tail</a>
 					</div>
 				<hr>
 					<div>
-						<!-- section piéton-->
+						<!-- section piÃ©ton-->
 						<img class="img" src="../static/img/pieton.jpg"/>
-						<!-- séparateur aller-->
+						<!-- sÃ©parateur aller-->
 						<img class="img" src="../static/img/arrow-left.jpg"/>
 						<!-- section TC-->
 						<img class="img" src="../static/img/bus.jpg"/>
-						<!-- séparateur aller-->
+						<!-- sÃ©parateur aller-->
 						<img class="img" src="../static/img/arrow-left.jpg"/>
-						<!-- section piéton-->
+						<!-- section piÃ©ton-->
 						<img class="img" src="../static/img/pieton.jpg"/>
 							<p>
-							Retour - Durée: xx minutes
+							Retour - DurÃ©e: xx minutes
 						</p>
 					<div class="center">
 				<hr>
