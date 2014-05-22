@@ -59,6 +59,7 @@
 					<div>
 						<span><img class="img" src="../static/img/"/>{{ item.type }}: {{ item.name }}</span>
 						<div class="center">
+							{% if item.type == 'bar' or item.type == 'pub' %}
 							<p>
 								Type de bières
 								<ul>
@@ -67,12 +68,44 @@
 									<li>bière C</li>
 								</ul>
 							</p>
+							{% endif %}
+							{% if item.type == 'fast_food' %}
+							<p>
+								Type de trucs pas bons
+								<ul>
+									<li>frites sèches</li>
+									<li>coca tiède</li>
+									<li>cheeseburgers mous</li>
+								</ul>
+							</p>
+							{% endif %}
+							{% if item.type == 'restaurant' %}
+							<p>
+								Type de trucs pas bons
+								<ul>
+									<li>entrée</li>
+									<li>plats</li>
+									<li>desserts</li>
+								</ul>
+							</p>
+							{% endif %}
+							{% if item.type == 'cafe' %}
+							<p>
+								Type de trucs pas bons
+								<ul>
+									<li>chaud</li>
+									<li>froid</li>
+								</ul>
+							</p>
+							{% endif %}
 							<p>
 								Horaires ouvertures: hhHmm à hhHmm
 							</p>
+							{% if item.type == 'bar' or item.type == 'pub' %}
 							<p>
 								Happy Hour: hhHmm à hhHmm
 							</p>
+							{% endif %}
 						</div>
 						<a href="map.html" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
 					</div>

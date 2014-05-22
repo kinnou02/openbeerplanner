@@ -16,22 +16,10 @@
     </header>
     <div class="container">
       <ul class="list-group">
-      <li class="list-group-item">Bars à bière - {{ amenities['bar']|length + amenities['pub']|length }} résultats</li>
-        {% for item in amenities['bar']+amenities['pub'] %}
-            <li><a href="/amenity/{{item.id}}">{{ item.name }}</a></li>
-        {% endfor %}
-      <li class="list-group-item">Snacks - {{ amenities['fast_food']|length}} résultats</li>
-        {% for item in amenities['fast_food'] %}
-            <li><a href="/amenity/{{item.id}}">{{ item.name }}</a></li>
-        {% endfor %}
-      <li class="list-group-item">Restaurants - {{ amenities['restaurant']|length}} résultats</li>
-        {% for item in amenities['restaurant'] %}
-            <li><a href="/amenity/{{item.id}}">{{ item.name }}</a></li>
-        {% endfor %}
-      <li class="list-group-item">Cafés - {{ amenities['cafe']|length}} résultats</li>
-        {% for item in amenities['cafe'] %}
-            <li><a href="/amenity/{{item.id}}">{{ item.name }}</a></li>
-        {% endfor %}
+      <li class="list-group-item"><a href="/fdr/bar">Bars à bière - {{ amenities['bar']|length + amenities['pub']|length }} résultats</a></li>
+      <li class="list-group-item"><a href="/fdr/fast_food">Snacks - {{ amenities['fast_food']|length}} résultats</a></li>
+      <li class="list-group-item"><a href="/fdr/restaurant">Restaurants - {{ amenities['restaurant']|length}} résultats</a></li>
+      <li class="list-group-item"><a href="/fdr/cafe">Cafés - {{ amenities['cafe']|length}} résultats</a></li>
     </ul>
     </div>
     <footer></footer>
