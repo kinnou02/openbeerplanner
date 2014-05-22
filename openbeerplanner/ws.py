@@ -39,6 +39,12 @@ class Anemity(object):
         self.name = name
         self.type = None
         self.coord = None
+        self.description = None
+        self.cuisine = None
+        self.house_number = None
+        self.street = None
+        self.opening_hours = None
+        self.phone = None
 
 def journeys(self, from_, to):
     """
@@ -53,17 +59,6 @@ def sort_and_filter(amenities):
         if len(res[item.type]) < 10:
             res[item.type].append(item)
     return res
-
-
-def get_amenity(id):
-    api = OsmApi()
-    res = api.NodeGet(id)
-    if not res.has_key('tag') or not res['tag'].has_key('name') or not elem['tag'].has_key('amenity'):
-        return None
-    amenity = Anemity(res['tag']['name'], res['id'])
-    amenity.coord = Coord(elem['lon'], elem['lat'])
-    amenity.type = elem['tag']['amenity']
-    return amenity
 
 
 def get_amenities(where):
@@ -86,6 +81,12 @@ def get_amenities(where):
             anemity = Anemity(elem['tags']['name'], elem['id'])
             anemity.coord = Coord(elem['lon'], elem['lat'])
             anemity.type = elem['tags']['amenity']
+
+            if elem['tags'].has_key('description'):
+                anemity.description = elem['tags']['description']
+
+            if elem['tags'].has_key('cuisine'):
+                anemity.cuisine = elem['tags']['cuisine']
             anemities.append(anemity)
     return anemities
 
