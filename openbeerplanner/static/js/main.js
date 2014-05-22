@@ -6,3 +6,9 @@ $(document).ready(function() {
 	interval: 0,
   });
 });
+
+$("#swipe").swipe({
+  swipeLeft:function(event, direction, distance, duration, fingerCount) {
+   alert ("tu sux");
+  }
+});
