@@ -6,7 +6,9 @@
     <title>New Page</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+	<script src="../static/js/main.js" type="text/javascript"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
   </head>
   
@@ -14,25 +16,11 @@
     <header>
       <img src="https://builder.divshot.com/img/placeholder-100x100.gif">
     </header>
-    <ol class="breadcrumb">
-      <li>
-        <a href="#">Home</a>
-      </li>
-      <li>
-        <a href="#">Library</a>
-      </li>
-      <li class="active">Data</li>
-    </ol>
     <div class="container">
       <div class='row'>
     <div class='col-md-offset-2 col-md-8'>
       <div class="carousel slide" data-ride="carousel" id="quote-carousel">
         <!-- Bottom Carousel Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#quote-carousel" data-slide-to="1"></li>
-          <li data-target="#quote-carousel" data-slide-to="2"></li>
-        </ol>
         
         <!-- Carousel Slides / Quotes -->
         <div class="carousel-inner">
@@ -41,13 +29,71 @@
           <div class="item active">
             <blockquote>
               <div class="row">
-                <div class="col-sm-3 text-center">
-                  <img class="img-circle" src="http://wp-desk.com/lovinflat/images/persons/person_1.png" style="width: 100px;height:100px;">
-                </div>
-                <div class="col-sm-9">
-                  <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
-                  <small>Someone famous</small>
-                </div>
+				<hr>
+				<div class="center">
+					<a data-slide="prev" href="#quote-carousel">PREV</a>
+					Proposition x/y
+					<a data-slide="next" href="#quote-carousel">NEXT</a>
+				</div>
+				<hr>
+					<div class="center">
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-right.jpg"/>
+						<!-- section TC-->
+						<img class="img" src="../static/img/bus.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-right.jpg"/>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<p>
+							Aller - Durée: xx minutes
+						</p>
+					</div>
+				<hr>
+					<div>
+						<span><img class="img" src="../static/img/"/>Bar le XXXXX1</span>
+						<div class="center">
+							<p>
+								Type de bières
+								<ul>
+									<li>bière A</li>
+									<li>bière B</li>
+									<li>bière C</li>
+								</ul>
+							</p>
+							<p>
+								Horaires ouvertures: hhHmm à hhHmm
+							</p>
+							<p>
+								Happy Hour: hhHmm à hhHmm
+							</p>
+						</div>
+						<a href="map.html" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
+					</div>
+				<hr>
+					<div>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-left.jpg"/>
+						<!-- section TC-->
+						<img class="img" src="../static/img/bus.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-left.jpg"/>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+							<p>
+							Retour - Durée: xx minutes
+						</p>
+					<div class="center">
+				<hr>
+				<span>
+					<a data-slide="prev" href="#quote-carousel">PREV</a>
+					Proposition x/y
+					<a data-slide="next" href="#quote-carousel">NEXT</a>
+				</span>
               </div>
             </blockquote>
           </div>
@@ -55,35 +101,77 @@
           <div class="item">
             <blockquote>
               <div class="row">
-                <div class="col-sm-3 text-center">
-                  <img class="img-circle" src="http://wp-desk.com/lovinflat/images/persons/person_2.png" style="width: 100px;height:100px;">
-                </div>
-                <div class="col-sm-9">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.</p>
-                  <small>Someone famous</small>
-                </div>
+				<hr>
+				<div class="center">
+					<a data-slide="prev" href="#quote-carousel">PREV</a>
+					Proposition x/y
+					<a data-slide="next" href="#quote-carousel">NEXT</a>
+				</div>
+				<hr>
+					<div class="center">
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-right.jpg"/>
+						<!-- section TC-->
+						<img class="img" src="../static/img/bus.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-right.jpg"/>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<p>
+							Aller - Durée: xx minutes
+						</p>
+					</div>
+				<hr>
+					<div>
+						<span><img class="img" src="../static/img/"/>Bar le XXXXX1</span>
+						<div class="center">
+							<p>
+								Type de bières
+								<ul>
+									<li>bière A</li>
+									<li>bière B</li>
+									<li>bière C</li>
+								</ul>
+							</p>
+							<p>
+								Horaires ouvertures: hhHmm à hhHmm
+							</p>
+							<p>
+								Happy Hour: hhHmm à hhHmm
+							</p>
+						</div>
+						<a href="map.html" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
+					</div>
+				<hr>
+					<div>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-left.jpg"/>
+						<!-- section TC-->
+						<img class="img" src="../static/img/bus.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-left.jpg"/>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+							<p>
+							Retour - Durée: xx minutes
+						</p>
+					<div class="center">
+				<hr>
+				<span>
+					<a data-slide="prev" href="#quote-carousel">PREV</a>
+					Proposition x/y
+					<a data-slide="next" href="#quote-carousel">NEXT</a>
+				</span>
               </div>
             </blockquote>
           </div>
-          <!-- Quote 3 -->
-          <div class="item">
-            <blockquote>
-              <div class="row">
-                <div class="col-sm-3 text-center">
-                  <img class="img-circle" src="http://wp-desk.com/lovinflat/images/persons/person_3.png" style="width: 100px;height:100px;">
-                </div>
-                <div class="col-sm-9">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
-                  <small>Someone famous</small>
-                </div>
-              </div>
-            </blockquote>
-          </div>
-        </div>
-        
+          <!-- Quote 2 -->
         <!-- Carousel Buttons Next/Prev -->
-        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+        
       </div>                          
     </div>
       
