@@ -1,7 +1,7 @@
 import requests
 import shapely.geometry as geom
 import logging
-
+from collections import defaultdict
 __all__ = ['journeys']
 
 URL_NAVITIA = 'https://api.navitia.io/v1/'
@@ -23,7 +23,7 @@ class Coord(object):
     def __str__(self):
         return '{lon};{lat}'.format(lon=self.lon, lat=self.lat)
 
-    def radius(self, distance=5):
+    def radius(self, distance=1):
         """
         >>> c = Coord(48.8468041, 2.370162)
         >>> c.radius()
@@ -32,7 +32,8 @@ class Coord(object):
         return geom.Point(self.lon, self.lat).buffer(distance * KM_TO_DEG).bounds
 
 class Anemity(object):
-    def __init__(self, name):
+    def __init__(self, name, id):
+        self.id = id
         self.name = name
         self.type = None
         self.coord = None
@@ -44,8 +45,15 @@ def journeys(self, from_, to):
     resp = requests.get(URL + 'journeys', params={'from': from_, 'to': to})
 
 
+def sort_and_filter(amenities):
+    res = defaultdict(list)
+    for item in amenities:
+        if len(res[item.type]) < 10:
+            res[item.type].append(item)
+    return res
 
-def get_anemity(where):
+
+def get_amenity(where):
     anemities = []
     anemity_types = ['cafe', 'pub', 'bar', 'restaurant', 'fast_food']
     radius = where.radius()
@@ -61,8 +69,8 @@ def get_anemity(where):
         logging.error('response KO: %s', resp.json())
 
     for elem in resp.json()['elements']:
-        if elem.has_key('tags') and elem['tags'].has_key('name') and elem['tags'].has_key('anemity'):
-            anemity = Anemity(elem['tags']['name'])
+        if elem.has_key('tags') and elem['tags'].has_key('name') and elem['tags'].has_key('amenity'):
+            anemity = Anemity(elem['tags']['name'], elem['id'])
             anemity.coord = Coord(elem['lon'], elem['lat'])
             anemity.type = elem['tags']['amenity']
             anemities.append(anemity)

@@ -15,10 +15,17 @@ heroku = Heroku(app)
 api = Api(app)
 
 #with the deveopement server we nned to serve the index.html
+
 @app.route('/')
 def root():
-    anemities = ws.get_anemity(ws.Coord(48.84680, 2.37628))
-    return render_template('index.html', anemities=anemities)
+    return render_template('index.html')
+
+@app.route('/list')
+def list():
+    amenities = ws.get_amenity(ws.Coord(48.84680, 2.37628))
+    amenities = ws.sort_and_filter(amenities)
+    logging.debug(len(amenities))
+    return render_template('list.html', amenities=amenities)
     #return app.send_static_file('index.html')
 
 @app.before_first_request

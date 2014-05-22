@@ -16,11 +16,22 @@
     </header>
     <div class="container">
       <ul class="list-group">
-      <li class="list-group-item">Bars à bière - x résultats</li>
-      <li class="list-group-item">Bars à vin - x résultats</li>
-      <li class="list-group-item">Snacks - x résultats</li>
-      <li class="list-group-item">Restaurants - x résultats</li>
-      <li class="list-group-item">Sports - x résultats</li>
+      <li class="list-group-item">Bars à bière - {{ amenities['bar']|length + amenities['pub']|length }} résultats</li>
+        {% for item in amenities['bar']+amenities['pub'] %}
+            <li><a href="/amenity/{{item.id}}">{{ item.name }}</a></li>
+        {% endfor %}
+      <li class="list-group-item">Snacks - {{ amenities['fast_food']|length}} résultats</li>
+        {% for item in amenities['fast_food'] %}
+            <li><a href="/amenity/{{item.id}}">{{ item.name }}</a></li>
+        {% endfor %}
+      <li class="list-group-item">Restaurants - {{ amenities['restaurant']|length}} résultats</li>
+        {% for item in amenities['restaurant'] %}
+            <li><a href="/amenity/{{item.id}}">{{ item.name }}</a></li>
+        {% endfor %}
+      <li class="list-group-item">Cafés - {{ amenities['cafe']|length}} résultats</li>
+        {% for item in amenities['cafe'] %}
+            <li><a href="/amenity/{{item.id}}">{{ item.name }}</a></li>
+        {% endfor %}
     </ul>
     </div>
     <footer></footer>
