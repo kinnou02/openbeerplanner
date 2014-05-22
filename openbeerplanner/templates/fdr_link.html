@@ -32,14 +32,12 @@
 			<div class="item">
 		{% endif %}<li><a href="/amenity/{{item.id}}"></a></li>
 				  <blockquote>
-				  
               <div class="row">
-			  <div class="center">
 				<hr>
 				<div class="center">
-					
+					<a data-slide="prev" href="#quote-carousel">PREV</a>
 					Proposition {{loop.index}}/{{amenities|length}}
-		
+					<a data-slide="next" href="#quote-carousel">NEXT</a>
 				</div>
 				<hr>
 					<div class="center">
@@ -129,15 +127,14 @@
 					<div class="center">
 				<hr>
 				<span>
+					<a data-slide="prev" href="#quote-carousel">PREV</a>
 					Proposition {{loop.index}}/{{amenities|length}}
+					<a data-slide="next" href="#quote-carousel">NEXT</a>
 				</span>
               </div>
-			  </div>
             </blockquote>
           </div>
         {% endfor %}
-		<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
       </div>                          
     </div>
       
