@@ -1,5 +1,4 @@
 import requests
-import shapely.geometry as geom
 import logging
 from collections import defaultdict
 __all__ = ['journeys']
