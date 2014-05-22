@@ -45,6 +45,7 @@ class Anemity(object):
         self.street = None
         self.opening_hours = None
         self.phone = None
+        self.brewery = []
 
 def journeys(self, from_, to):
     """
@@ -87,6 +88,17 @@ def get_amenities(where):
 
             if elem['tags'].has_key('cuisine'):
                 anemity.cuisine = elem['tags']['cuisine']
+
+            if elem['tags'].has_key('addr:housenumber'):
+                anemity.house_number = elem['tags']['addr:housenumber']
+
+            if elem['tags'].has_key('addr:street'):
+                anemity.street = elem['tags']['addr:street']
+            if elem['tags'].has_key('contact:phone'):
+                anemity.phone = elem['tags']['contact:phone']
+
+            if elem['tags'].has_key('brewery'):
+                anemity.brewery = elem['tags']['brewery'].split(';')
             anemities.append(anemity)
     return anemities
 
