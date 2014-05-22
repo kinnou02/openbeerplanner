@@ -24,15 +24,19 @@
         
         <!-- Carousel Slides / Quotes -->
         <div class="carousel-inner">
-        
-          <!-- Quote 1 -->
-          <div class="item active">
-            <blockquote>
+		
+		{% for item in amenities %}
+		{% if loop.index == 5 %}
+			<div class="item active">
+		{% else %}
+			<div class="item">
+		{% endif %}<li><a href="/amenity/{{item.id}}"></a></li>
+				  <blockquote>
               <div class="row">
 				<hr>
 				<div class="center">
 					<a data-slide="prev" href="#quote-carousel">PREV</a>
-					Proposition x/y
+					Proposition {{loop.index}}/{{amenities|length}}
 					<a data-slide="next" href="#quote-carousel">NEXT</a>
 				</div>
 				<hr>
@@ -53,7 +57,7 @@
 					</div>
 				<hr>
 					<div>
-						<span><img class="img" src="../static/img/"/>Bar le XXXXX1</span>
+						<span><img class="img" src="../static/img/"/>{{ item.type }}: {{ item.name }}</span>
 						<div class="center">
 							<p>
 								Type de bières
@@ -91,87 +95,13 @@
 				<hr>
 				<span>
 					<a data-slide="prev" href="#quote-carousel">PREV</a>
-					Proposition x/y
+					Proposition {{loop.index}}/{{amenities|length}}
 					<a data-slide="next" href="#quote-carousel">NEXT</a>
 				</span>
               </div>
             </blockquote>
           </div>
-          <!-- Quote 2 -->
-          <div class="item">
-            <blockquote>
-              <div class="row">
-				<hr>
-				<div class="center">
-					<a data-slide="prev" href="#quote-carousel">PREV</a>
-					Proposition x/y
-					<a data-slide="next" href="#quote-carousel">NEXT</a>
-				</div>
-				<hr>
-					<div class="center">
-						<!-- section piéton-->
-						<img class="img" src="../static/img/pieton.jpg"/>
-						<!-- séparateur aller-->
-						<img class="img" src="../static/img/arrow-right.jpg"/>
-						<!-- section TC-->
-						<img class="img" src="../static/img/bus.jpg"/>
-						<!-- séparateur aller-->
-						<img class="img" src="../static/img/arrow-right.jpg"/>
-						<!-- section piéton-->
-						<img class="img" src="../static/img/pieton.jpg"/>
-						<p>
-							Aller - Durée: xx minutes
-						</p>
-					</div>
-				<hr>
-					<div>
-						<span><img class="img" src="../static/img/"/>Bar le XXXXX1</span>
-						<div class="center">
-							<p>
-								Type de bières
-								<ul>
-									<li>bière A</li>
-									<li>bière B</li>
-									<li>bière C</li>
-								</ul>
-							</p>
-							<p>
-								Horaires ouvertures: hhHmm à hhHmm
-							</p>
-							<p>
-								Happy Hour: hhHmm à hhHmm
-							</p>
-						</div>
-						<a href="map.html" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
-					</div>
-				<hr>
-					<div>
-						<!-- section piéton-->
-						<img class="img" src="../static/img/pieton.jpg"/>
-						<!-- séparateur aller-->
-						<img class="img" src="../static/img/arrow-left.jpg"/>
-						<!-- section TC-->
-						<img class="img" src="../static/img/bus.jpg"/>
-						<!-- séparateur aller-->
-						<img class="img" src="../static/img/arrow-left.jpg"/>
-						<!-- section piéton-->
-						<img class="img" src="../static/img/pieton.jpg"/>
-							<p>
-							Retour - Durée: xx minutes
-						</p>
-					<div class="center">
-				<hr>
-				<span>
-					<a data-slide="prev" href="#quote-carousel">PREV</a>
-					Proposition x/y
-					<a data-slide="next" href="#quote-carousel">NEXT</a>
-				</span>
-              </div>
-            </blockquote>
-          </div>
-          <!-- Quote 2 -->
-        <!-- Carousel Buttons Next/Prev -->
-        
+        {% endfor %}
       </div>                          
     </div>
       
