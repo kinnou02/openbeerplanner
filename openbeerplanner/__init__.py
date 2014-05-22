@@ -6,7 +6,7 @@ from openbeerplanner import ws
 
 from flask import render_template
 
-app = Flask(__name__)t 
+app = Flask(__name__)
 app.debug = True# if environ.get('DEBUG') in ['True', 'true', '1'] else False
 heroku = Heroku(app)
 #app.config['SECRET_KEY'] = environ.get('SECRET_KEY')
