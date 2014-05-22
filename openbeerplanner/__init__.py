@@ -31,6 +31,14 @@ def fdr(type):
     logging.debug(len(amenities))
     return render_template('fdr.html', amenities=amenities)
 
+
+@app.route('/map/<osmid>')
+def map(osmid):
+    amenity = ws.get_amenity(osmid)
+    logging.debug(amenity)
+    return render_template('map.html', amenity=amenity)
+
+
 @app.before_first_request
 def setup_logging():
     logging.basicConfig(level=logging.DEBUG)

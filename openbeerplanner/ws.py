@@ -81,34 +81,46 @@ def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fas
         logging.error('response KO: %s', resp.json())
 
     for elem in resp.json()['elements']:
-        if elem.has_key('tags') and elem['tags'].has_key('name') and elem['tags'].has_key('amenity'):
-            anemity = Anemity(elem['tags']['name'], elem['id'])
-            anemity.coord = Coord(elem['lon'], elem['lat'])
-            anemity.type = elem['tags']['amenity']
-
-            if elem['tags'].has_key('description'):
-                anemity.description = elem['tags']['description']
-
-            if elem['tags'].has_key('cuisine'):
-                anemity.cuisine = elem['tags']['cuisine']
-
-            if elem['tags'].has_key('addr:housenumber'):
-                anemity.house_number = elem['tags']['addr:housenumber']
-
-            if elem['tags'].has_key('addr:street'):
-                anemity.street = elem['tags']['addr:street']
-            if elem['tags'].has_key('contact:phone'):
-                anemity.phone = elem['tags']['contact:phone']
-
-            if elem['tags'].has_key('opening_hours'):
-                anemity.opening_hours = elem['tags']['opening_hours']
-
-            if elem['tags'].has_key('brewery'):
-                anemity.brewery = elem['tags']['brewery'].split(';')
-            anemities.append(anemity)
+    	truc = build_amenity(elem,'tags')
+    	if truc :
+        	anemities.append(truc)
     return anemities
 
 
+def get_amenity (id):
+    api = OsmApi()
+    dico = api.NodeGet(id)
+    return build_amenity(dico, 'tag')
 
+    
+def build_amenity(elem, mon_tag ) :
+    	logging.debug(elem)
+        if elem.has_key(mon_tag) and elem[mon_tag].has_key('name') and elem[mon_tag].has_key('amenity'):
+            anemity = Anemity(elem[mon_tag]['name'], elem['id'])
+            anemity.coord = Coord(elem['lon'], elem['lat'])
+            anemity.type = elem[mon_tag]['amenity']
 
+            if elem[mon_tag].has_key('description'):
+                anemity.description = elem[mon_tag]['description']
 
+            if elem[mon_tag].has_key('cuisine'):
+                anemity.cuisine = elem[mon_tag]['cuisine']
+
+            if elem[mon_tag].has_key('addr:housenumber'):
+                anemity.house_number = elem[mon_tag]['addr:housenumber']
+
+            if elem[mon_tag].has_key('addr:street'):
+                anemity.street = elem[mon_tag]['addr:street']
+            if elem[mon_tag].has_key('contact:phone'):
+                anemity.phone = elem[mon_tag]['contact:phone']
+
+            if elem[mon_tag].has_key('opening_hours'):
+                anemity.opening_hours = elem[mon_tag]['opening_hours']
+
+            if elem[mon_tag].has_key('brewery'):
+                anemity.brewery = elem[mon_tag]['brewery'].split(';')
+             
+            
+        	return anemity
+        else :
+            logging.debug("---------------------------- pas traite")
