@@ -4,10 +4,12 @@
    <head>
     <meta charset="utf-8">
     <title>New Page</title>
+	<link rel="stylesheet" href="../static/css/style.css">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../static/js/main.js" type="text/javascript"></script>
   </head>
   
   <body>
@@ -19,23 +21,26 @@
         <div class="form-group"></div>
         <div class="row">
           <div class="col-md-6">
-            <div class="range">
-              <input name="range" min="1" max="5" value="3" onchange="range.value=value" type="range">
-              <output id="range">Temps</output>
-            </div>
+          <div class="range range-primary">
+            <input type="range" name="range" min="1" max="5" value="3" id="rangePrimary" onchange="hourgetter();">
+            <output id="rangePrimaryOutput" value="2" style="visibility: hidden;"></output>
           </div>
         </div>
+        </div>
+		<span id="hour">2h00</span>
+		<hr>
         <div class="row">
           <div class="col-md-6">
             <div class="range range-success">
-              <input name="range" min="1" max="5" value="3" onchange="rangeSuccess.value=value" type="range">
-              <output id="rangeSuccess">Humeur</output>
+			   <input type="range" name="range" min="1" max="3" value="2" id="rangeSuccess" onchange="shoesgetter();">
+			   <output id="rangeSuccessOutput" value="2" style="visibility: hidden;"></output>
             </div>
           </div>
         </div>
+		<span id="shoes">basket</span>
       </form>
-      <p>ergerght rg trhtreh trh etrh tyh tyrh tyh tyhtyh tyh tyh tyh tyht rhytrhtyh<br></p>
-      <p>ergerght rg trhtreh trh etrh tyh tyrh tyh tyhtyh tyh tyh tyh tyht rhytrhtyh<br></p>
+      <p>Vous êtes à l'espace Hector Malot, chez Canal TP.<br></p>
+      <p>Il est<br></p>
       <img src="https://builder.divshot.com/img/placeholder-100x100.gif">
       <p>ergerght rg trhtreh trh etrh tyh tyrh tyh tyhtyh tyh tyh tyh tyht rhytrhtyh<br></p>
       <p>ergerght rg trhtreh trh etrh tyh tyrh tyh tyhtyh tyh tyh tyh tyht rhytrhtyh<br></p>
@@ -44,7 +49,7 @@
       <p></p>
     </div>
     <div class="container">
-      <a href="home.html" class="btn btn-block btn-primary btn-lg">GO!</a>
+      <a href="list/time/2h00/shoes/rando" onclick="calllist();" class="btn btn-block btn-primary btn-lg">GO!</a>
     </div>
     <footer></footer>
   </body>
