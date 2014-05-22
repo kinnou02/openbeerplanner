@@ -20,17 +20,16 @@ def root():
 @app.route('/list')
 def list():
     amenities = ws.get_amenities(ws.Coord(48.84680, 2.37628))
-    amenities = ws.sort_and_filter(amenities)
-    logging.debug(len(amenities))
-    return render_template('list.html', amenities=amenities)
+    counters = ws.counters(amenities)
+    return render_template('list.html', counters=counters)
 
 
 @app.route('/fdr/<type>')
 def fdr(type):
-    amenities = ws.get_amenities(ws.Coord(48.84680, 2.37628))
-    amenities = ws.sort_and_filter(amenities)
+    amenities = ws.get_amenities(ws.Coord(48.84680, 2.37628), anemity_types=[type])
+    amenities = ws.filter(amenities)
     logging.debug(len(amenities))
-    return render_template('fdr.html', amenities=amenities[type])
+    return render_template('fdr.html', amenities=amenities)
 
 @app.before_first_request
 def setup_logging():

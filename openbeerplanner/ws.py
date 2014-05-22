@@ -1,6 +1,7 @@
 import requests
 import logging
 from collections import defaultdict
+import random
 from osmapi import OsmApi
 __all__ = ['journeys']
 
@@ -54,17 +55,19 @@ def journeys(self, from_, to):
     resp = requests.get(URL + 'journeys', params={'from': from_, 'to': to})
 
 
-def sort_and_filter(amenities):
-    res = defaultdict(list)
+def counters(amenities):
+    res = defaultdict(int)
     for item in amenities:
-        if len(res[item.type]) < 10:
-            res[item.type].append(item)
+        res[item.type] += 1
     return res
 
+def filter(amenities):
+    return [random.choice(amenities) for i in range(10)]
 
-def get_amenities(where):
+
+
+def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
     anemities = []
-    anemity_types = ['cafe', 'pub', 'bar', 'restaurant', 'fast_food']
     radius = where.radius()
     param = '[out:json][timeout:25];('
     for anemity_type in anemity_types:
