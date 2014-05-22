@@ -97,6 +97,9 @@ def get_amenities(where):
             if elem['tags'].has_key('contact:phone'):
                 anemity.phone = elem['tags']['contact:phone']
 
+            if elem['tags'].has_key('opening_hours'):
+                anemity.opening_hours = elem['tags']['opening_hours']
+
             if elem['tags'].has_key('brewery'):
                 anemity.brewery = elem['tags']['brewery'].split(';')
             anemities.append(anemity)
