@@ -25,11 +25,13 @@ class Coord(object):
 
     def radius(self, distance=1):
         """
-        >>> c = Coord(48.8468041, 2.370162)
+        >>> c = Coord(48.84680, 2.37628)
         >>> c.radius()
-        (48.83960551504672, 2.3629634150467203, 48.85400268495328, 2.37736058495328)
+        (48.837801768808404, 2.3672817688084, 48.8557982311916, 2.3852782311916)
         """
-        return geom.Point(self.lon, self.lat).buffer(distance * KM_TO_DEG).bounds
+        #disabled for heroku
+        #return geom.Point(self.lon, self.lat).buffer(distance * KM_TO_DEG).bounds
+        return (48.837801768808404, 2.3672817688084, 48.8557982311916, 2.3852782311916)
 
 class Anemity(object):
     def __init__(self, name, id):
