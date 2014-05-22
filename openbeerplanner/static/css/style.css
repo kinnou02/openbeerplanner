@@ -1,0 +1,22 @@
+/* Put your CSS here */
+html, body {
+    margin: 20px;
+}
+
+.error-messages{
+    color: red;
+    border: 1px solid red;
+    margin: 5px;
+    display: none;
+}
+
+/*
+#recipe-edit input{
+    width: 500px;
+}
+
+#recipe-edit textarea{
+    width: 500px;
+    height: 20em;
+}
+*/
