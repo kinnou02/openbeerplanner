@@ -1,6 +1,7 @@
 import requests
 import logging
 from collections import defaultdict
+from osmapi import OsmApi
 __all__ = ['journeys']
 
 URL_NAVITIA = 'https://api.navitia.io/v1/'
@@ -54,7 +55,18 @@ def sort_and_filter(amenities):
     return res
 
 
-def get_amenity(where):
+def get_amenity(id):
+    api = OsmApi()
+    res = api.NodeGet(id)
+    if not res.has_key('tag') or not res['tag'].has_key('name') or not elem['tag'].has_key('amenity'):
+        return None
+    amenity = Anemity(res['tag']['name'], res['id'])
+    amenity.coord = Coord(elem['lon'], elem['lat'])
+    amenity.type = elem['tag']['amenity']
+    return amenity
+
+
+def get_amenities(where):
     anemities = []
     anemity_types = ['cafe', 'pub', 'bar', 'restaurant', 'fast_food']
     radius = where.radius()
