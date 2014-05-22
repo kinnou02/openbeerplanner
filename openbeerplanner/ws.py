@@ -82,8 +82,11 @@ def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fas
 
     for elem in resp.json()['elements']:
     	truc = build_amenity(elem,'tags')
+        logging.debug(truc)
     	if truc :
         	anemities.append(truc)
+        else:
+            logging.debug('------- pas add')
     return anemities
 
 
@@ -120,7 +123,8 @@ def build_amenity(elem, mon_tag ) :
             if elem[mon_tag].has_key('brewery'):
                 anemity.brewery = elem[mon_tag]['brewery'].split(';')
              
-            
-        	return anemity
+            logging.debug(anemity)
+            return anemity
         else :
             logging.debug("---------------------------- pas traite")
+            return None
