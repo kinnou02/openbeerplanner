@@ -5,14 +5,23 @@ $(document).ready(function() {
     pause: true,
 	interval: 0,
   });
+  
+  
+  today=new Date();
+
+  hours= today.getHours();  
+  dateheure = today.getHours() + ":" + today.getMinutes();today.getHours() + ":" + today.getMinutes();
+  document.getElementById("time").innerHTML=dateheure;
 });
 
-$("#swipe").swipe({
-  swipeLeft:function(event, direction, distance, duration, fingerCount) {
-   alert ("tu sux");
-  }
-});
 
+function setURL()
+{
+	value1 = document.getElementById("rangePrimaryOutput").value;
+	value2 = document.getElementById("rangeSuccessOutput").value;
+	result = "list?time="+value1+"&humor="+value2;
+	document.getElementById("button").setAttribute("href", result);
+}
 
 function hourgetter() {
 
@@ -40,6 +49,7 @@ function hourgetter() {
 	}
 	document.getElementById("hour").innerHTML=result;
 	document.getElementById("rangePrimaryOutput").value=value;
+	setURL();
 }
 
 function shoesgetter() {
@@ -60,10 +70,5 @@ function shoesgetter() {
 	}
 	document.getElementById("shoes").innerHTML=result;
 	document.getElementById("rangeSuccessOutput").value=value;
-}
-
-function calllist()
-{
-	value1 = document.getElementById("rangePrimaryOutput").value;
-	value2 = document.getElementById("rangeSuccessOutput").value;
+	setURL();
 }
