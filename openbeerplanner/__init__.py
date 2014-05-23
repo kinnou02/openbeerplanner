@@ -30,14 +30,14 @@ def fdr(type):
     amenities = ws.filter(amenities)
     for amenity in amenities:
         amenity.journey.build_journey(ws.Coord(lat=48.84680, lon=2.37628), amenity.coord)
-        logging.debug(amenity.journey.modes)
+        #logging.debug(amenity.journey.modes)
     return render_template('fdr.html', amenities=amenities)
 
 
 @app.route('/map/<osmid>')
 def map(osmid):
     amenity = ws.get_amenity(osmid)
-    logging.debug(amenity)
+    #logging.debug(amenity)
     amenity.journey.build_journey(ws.Coord(lat=48.84680, lon=2.37628), amenity.coord)
     return render_template('map.html', amenity=amenity)
 

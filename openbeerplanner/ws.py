@@ -45,7 +45,7 @@ class Journey(object):
         resp = requests.get(URL_NAVITIA + 'journeys', params={'from': frm, 'to': to})
         if resp.status_code == 200 and 'error' not in resp.json():
             journeys = resp.json()
-            logging.debug(journeys)
+            #logging.debug(journeys)
             self.duration = journeys['journeys'][0]['duration']/60
             for m in journeys['journeys'][0]['sections']:
                 if 'display_informations' in m:
@@ -68,6 +68,7 @@ class Anemity(object):
         self.house_number = None
         self.street = None
         self.opening_hours = None
+        self.happy_hours = None
         self.phone = None
         self.brewery = []
 
@@ -106,11 +107,10 @@ def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fas
 
     for elem in resp.json()['elements']:
         truc = build_amenity(elem,'tags')
-        logging.debug(truc)
+        #logging.debug(truc)
         if truc :
             anemities.append(truc)
-        else:
-            logging.debug('------- pas add')
+    #logging.debug(truc.happy_hours)   
     return anemities
 
 
@@ -121,7 +121,7 @@ def get_amenity (id):
 
     
 def build_amenity(elem, mon_tag ) :
-        logging.debug(elem)
+        #logging.debug(elem)
         if elem.has_key(mon_tag) and elem[mon_tag].has_key('name') and elem[mon_tag].has_key('amenity'):
             anemity = Anemity(elem[mon_tag]['name'], elem['id'])
             anemity.coord = Coord(elem['lon'], elem['lat'])
@@ -143,12 +143,14 @@ def build_amenity(elem, mon_tag ) :
 
             if elem[mon_tag].has_key('opening_hours'):
                 anemity.opening_hours = elem[mon_tag]['opening_hours']
-
+                
+            if elem[mon_tag].has_key('happy_hours'):
+                anemity.happy_hours = elem[mon_tag]['happy_hours']
+                
             if elem[mon_tag].has_key('brewery'):
                 anemity.brewery = elem[mon_tag]['brewery'].split(';')
              
-            logging.debug(anemity)
+            #logging.debug(anemity.happy_hours)
             return anemity
         else :
-            logging.debug("---------------------------- pas traite")
             return None
