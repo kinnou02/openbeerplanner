@@ -23,7 +23,8 @@
         
         <!-- Carousel Slides / Quotes -->
         <div class="carousel-inner">
-            {% for item in amenities %}
+  
+				{% for item in amenities %}
 			{% if loop.index == 1 %}
 				<div class="item active sizer">
 			{% else %}
@@ -31,89 +32,83 @@
 			{% endif %}
                   <blockquote class="overwrite">
 					  <div class="row overwrite">
-					  <div class="center">
-                    
-							Proposition {{loop.index}}/{{amenities|length}}
-        
-						</div>
-						 <div class="center fdr plan">
-                            {% for mode in item.journey.modes %}
-							{% if loop.index < 4 %}
-							{% if loop.index != 1 %}
-							<img class="img3" src="../static/img/separator.png"/>
-							{% endif %}
-                            <img  class="img3"  src="../static/img/{{mode}}.png"/>
-                            {% endif %}
-							{% endfor %}
-							{% if item.journey.duration %}
-							<p>
-							<span style="margin-left: 50px">Aller - Durée: <b>{{ item.journey.duration }} minutes</b></span>
-							</p>
-							{% endif %}
-						</div>
+						  <div class="center">
+								Proposition {{loop.index}}/{{amenities|length}}
+							</div>
+							<div class="center fdr plan">
+								{% for mode in item.journey.modes %}
+								{% if loop.index < 4 %}
+								{% if loop.index != 1 %}
+								<img class="img3" src="../static/img/separator.png"/>
+								{% endif %}
+								<img  class="img3"  src="../static/img/{{mode}}.png"/>
+								{% endif %}
+								{% endfor %}
+								{% if item.journey.duration %}
+								<p>
+								<span style="margin-left: 50px">Aller - Durée: <b>{{ item.journey.duration }} minutes</b></span>
+								</p>
+								{% endif %}
+							</div>
                         
-                        <div class="center fdr {{ item.type }}">
-						<span class="texter2"><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
-						</div>
-						<div class="center fdr {{ item.type }}">
-                            {% if item.brewery %}
-                            <p>
-                                <B>Type de bières</B>
-                                <ul>
-                                    {% for brew in item.brewery %}
-                                    <li>{{brew}}</li>
-                                    {% endfor %}
-                                </ul>
-                            </p>
-                            {% endif %}
-                            {% if item.cuisine %}
-                            <p>
-                                Type de cuisine: {{ item.cuisine }}.
-                            </p>
-                            {% endif %}
+							<div class="center fdr {{ item.type }}">
+								<span class="texter2"><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
+							</div>
+							<div class="center fdr {{ item.type }}">
+								{% if item.brewery %}
+								<p>
+									<B>Type de bières</B>
+									<ul>
+										{% for brew in item.brewery %}
+										<li>{{brew}}</li>
+										{% endfor %}
+									</ul>
+								</p>
+								{% endif %}
+								{% if item.cuisine %}
+								<p>
+									Type de cuisine: {{ item.cuisine }}.
+								</p>
+								{% endif %}
 							</div>
                             {% if item.house_number and item.street %}
                             <div class="center fdr {{ item.type }}">
-							<p>
-                            Adresse: {{ item.house_number }} {{item.street}}.
-                            </p>
+								<p>
+								Adresse: {{ item.house_number }} {{item.street}}.
+								</p>
 							</div>
                             {% endif %}
                             <p>
 							<div class="center fdr {{ item.type }}">
-                            {% if not item.opening_hours  %}
-                                Horaires ouvertures: NC
-                            {% else %}
-                                Horaires ouvertures: {{ item.opening_hours }}
-                            {% endif %}
-                            </p>
-                            {% if item.type == 'bar' or item.type == 'pub' %}
-                            <p>
-                                Happy Hour: hhHmm à hhHmm
-                            </p>
-                            {% endif %}
+								{% if not item.opening_hours  %}
+									Horaires ouvertures: NC
+								{% else %}
+									Horaires ouvertures: {{ item.opening_hours }}
+								{% endif %}
+								</p>
+								{% if item.type == 'bar' or item.type == 'pub' %}
+								<p>
+									Happy Hour: hhHmm à hhHmm
+								</p>
+								{% endif %}
 							</div>
-							
-						</div>
-						<a href="/map/{{item.id}}" id="button" class="center fdr map"></a>
-						 <div class="center fdr plan">
-                            
-						</div>
-                    <div class="center">
-						<hr>
-						<span>
-							Proposition {{loop.index}}/{{amenities|length}}
-						</span>
-					</div>
-			</div>
-		      </div>
-		   </blockquote>
+							<a href="/map/{{item.id}}" id="button" class="center fdr map"></a>
+							<div class="center fdr plan"></div>
+							<div class="center">
+								<hr>
+								<span>
+									Proposition {{loop.index}}/{{amenities|length}}
+								</span>
+							</div>
+				</blockquote>
           </div>
-        {% endfor %}
+		  {% endfor %}
+		 
+
         <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa"></i></a>
         <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa"></i></a>
-      </div>                          
- 
+      </div>       
+	</div>
     </div>
 	</div>
 	
