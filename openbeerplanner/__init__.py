@@ -28,7 +28,6 @@ def list():
 def fdr(type):
     amenities = ws.get_amenities(ws.Coord(48.84680, 2.37628), anemity_types=[type])
     amenities = ws.filter(amenities)
-    logging.debug(len(amenities))
     return render_template('fdr.html', amenities=amenities)
 
 @app.before_first_request
