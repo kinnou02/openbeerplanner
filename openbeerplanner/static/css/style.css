@@ -180,20 +180,55 @@ html, body {
 	margin: auto;
 }
 
-.bar {
+.center .fdr .bar {
 background: white url("../img/detail_bar.png") no-repeat;
+width: 640px;
+	padding:0;
+	margin-left: 0;
+	list-style-type: none;
+	height: 500px;
+	color: white;
+	margin: auto;
 }
-.pub {
+.center .fdr .pub {
 background: white url("../img/detail_pub.png") no-repeat;
+width: 640px;
+	padding:0;
+	margin-left: 0;
+	list-style-type: none;
+	height: 500px;
+	color: white;
+	margin: auto;
 }
-.cafe {
+.center .fdr .cafe {
 background: white url("../img/detail_cafe.png") no-repeat;
+width: 640px;
+	padding:0;
+	margin-left: 0;
+	list-style-type: none;
+	height: 500px;
+	color: white;
+	margin: auto;
 }
-.fast_food {
+.center .fdr .fast_food {
 background: white url("../img/detail_fast_food.png") no-repeat;
+width: 640px;
+	padding:0;
+	margin-left: 0;
+	list-style-type: none;
+	height: 500px;
+	color: white;
+	margin: auto;
 }
-.restaurant {
+.center .fdr .restaurant {
 background: white url("../img/restaurant.png") no-repeat;
+width: 640px;
+	padding:0;
+	margin-left: 0;
+	list-style-type: none;
+	height: 500px;
+	color: white;
+	margin: auto;
 }
 
 .range input[type="range"] {
