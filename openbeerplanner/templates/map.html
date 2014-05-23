@@ -21,7 +21,7 @@
       margin: 0;
     }
     html, body, #map {
-      height: 70%;
+      height: 90%;
       width: 100%;
     }
   </style>
@@ -40,7 +40,7 @@
   
       <script>
 	  var attr_osm = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors'  
-      var osm = new L.TileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {opacity: 0.7, attribution: attr_osm});
+      var osm = new L.TileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {opacity: 0.7, attribution: attr_osm});
       var map = new L.Map('map').addLayer(osm).setView(new L.LatLng(48.84702,2.37705), 18);    
       var baseMaps = { "Fond de carte OSM": osm };
       var overlayMaps = {}; // ce truc ne sert à rien ...
@@ -70,6 +70,18 @@
     	[pos_od]
 		]);
         
+         //localiser l'utilisateur 
+          map.locate({setView: true, follow: true})
+                .on('locationfound', function(e){
+                console.log("localisation utilisateur réussie");
+                    var marker = L.marker([e.latlng.lat, e.latlng.lng],{icon: L.icon({iconUrl: '../static/img/moi.png'})} ).bindPopup('Vous êtes par ici');
+                    map.addLayer(marker);
+                })
+               .on('locationerror', function(e){
+                    console.log(e);
+                    alert("échec de localisation de l'utilisateur");
+                });
+          
         // tracer le chemin entre les points
         // récupérer les points intermédiaires via navitia 
         	// (attention, les coordonnées sont à l'envers, il faut appliquer [].reverse() sur le couple)  
