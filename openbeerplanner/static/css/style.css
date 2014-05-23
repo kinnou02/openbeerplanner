@@ -16,6 +16,17 @@ html, body {
 	height: 800px;
 }
 
+.btn-block{
+	width: 640px;
+}
+
+ .container.home{
+	/*background: white url("../img/list_main.jpg") no-repeat;*/
+	width: 640px;
+	height: 800px;
+}
+
+
 .list_list{
 	width: 60%;
 	padding:0;
