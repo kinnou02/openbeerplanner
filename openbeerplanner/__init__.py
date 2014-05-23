@@ -19,15 +19,18 @@ def root():
 
 @app.route('/list')
 def list():
-    amenities = ws.get_amenities(ws.Coord(48.84680, 2.37628))
+    amenities = ws.get_amenities(ws.Coord(lat=48.84680, lon=2.37628))
     counters = ws.counters(amenities)
     return render_template('list.html', counters=counters)
 
 
 @app.route('/fdr/<type>')
 def fdr(type):
-    amenities = ws.get_amenities(ws.Coord(48.84680, 2.37628), anemity_types=[type])
+    amenities = ws.get_amenities(ws.Coord(lat=48.84680, lon=2.37628), anemity_types=[type])
     amenities = ws.filter(amenities)
+    for amenity in amenities:
+        amenity.journey.build_journey(ws.Coord(lat=48.84680, lon=2.37628), amenity.coord)
+        logging.debug(amenity.journey.modes)
     return render_template('fdr.html', amenities=amenities)
 
 

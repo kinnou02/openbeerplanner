@@ -3,6 +3,7 @@ import logging
 from collections import defaultdict
 import random
 from osmapi import OsmApi
+import json
 __all__ = ['journeys']
 
 URL_NAVITIA = 'https://api.navitia.io/v1/'
@@ -34,6 +35,28 @@ class Coord(object):
         #return geom.Point(self.lon, self.lat).buffer(distance * KM_TO_DEG).bounds
         return (48.837801768808404, 2.3672817688084, 48.8557982311916, 2.3852782311916)
 
+class Journey(object):
+    def __init__(self):
+        self.modes = []
+        self.duration = None
+        self.geojson = []
+
+    def build_journey(self, frm, to):
+        resp = requests.get(URL_NAVITIA + 'journeys', params={'from': frm, 'to': to})
+        if resp.status_code == 200 and 'error' not in resp.json():
+            journeys = resp.json()
+            logging.debug(journeys)
+            self.duration = journeys['journeys'][0]['duration']/60
+            for m in journeys['journeys'][0]['sections']:
+                if 'display_informations' in m:
+                    self.modes.append(m['display_informations']['commercial_mode'])
+                if 'mode' in m:
+                    self.modes.append(m['mode'])
+                if 'geojson' in m:
+                    self.geojson.append(json.dumps(m['geojson']))
+        else:
+            logging.debug(resp.json())
+
 class Anemity(object):
     def __init__(self, name, id):
         self.id = id
@@ -48,11 +71,12 @@ class Anemity(object):
         self.phone = None
         self.brewery = []
 
+        self.journey = Journey()
+
 def journeys(self, from_, to):
     """
     run a journeys on navitia
     """
-    resp = requests.get(URL + 'journeys', params={'from': from_, 'to': to})
 
 
 def counters(amenities):
@@ -81,10 +105,10 @@ def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fas
         logging.error('response KO: %s', resp.json())
 
     for elem in resp.json()['elements']:
-    	truc = build_amenity(elem,'tags')
+        truc = build_amenity(elem,'tags')
         logging.debug(truc)
-    	if truc :
-        	anemities.append(truc)
+        if truc :
+            anemities.append(truc)
         else:
             logging.debug('------- pas add')
     return anemities
@@ -97,7 +121,7 @@ def get_amenity (id):
 
     
 def build_amenity(elem, mon_tag ) :
-    	logging.debug(elem)
+        logging.debug(elem)
         if elem.has_key(mon_tag) and elem[mon_tag].has_key('name') and elem[mon_tag].has_key('amenity'):
             anemity = Anemity(elem[mon_tag]['name'], elem['id'])
             anemity.coord = Coord(elem['lon'], elem['lat'])

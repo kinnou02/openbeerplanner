@@ -53,9 +53,11 @@
                         <img class="img" src="../static/img/arrow-right.jpg"/>
                         <!-- section piéton-->
                         <img class="img" src="../static/img/pieton.jpg"/>
+                        {% if item.journey.duration %}
                         <p>
-                            Aller - Durée: xx minutes
+                        Aller - Durée: {{ item.journey.duration }} minutes
                         </p>
+                        {% endif %}
                     </div>
                 <hr>
                     <div>
