@@ -59,6 +59,11 @@ html, body {
 	padding-left: 40%;
 }
 
+.texter2{
+	padding: 0;
+	font-size: 24px;
+}
+
  .container.home2{
 	background: white url("../img/home_2.png") no-repeat;
 	width: 640px;
@@ -140,7 +145,7 @@ html, body {
 }
 
 .img2 { 
-	width: 60px;
+	width: 80px;
 }
 
 .center { 

@@ -53,10 +53,10 @@
 						<hr>
                         
                         <div class="center fdr {{ item.type }}">
-						<span><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
+						<span class="texter2"><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
                             {% if item.brewery %}
                             <p>
-                                Type de bières
+                                <B>Type de bières</B>
                                 <ul>
                                     {% for brew in item.brewery %}
                                     <li>{{brew}}</li>
