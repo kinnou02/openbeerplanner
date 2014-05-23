@@ -51,7 +51,7 @@
         // ajout du marqueur Hector Malot  
         var pos_od = new L.LatLng(48.84702,2.37705);
         var content_od = "<table class='table table-striped table-bordered table-condensed'> <tr><td>Point de départ (et d'arrivée)</td></tr></table>"
-		var myicon_od = L.icon({iconUrl: 'ici.png'});
+		var myicon_od = L.icon({iconUrl: '../static/img/ici.png'});
         var marker_od = L.marker(pos_od, {icon: myicon_od}).bindPopup(content_od);
         marker_od.addTo(map);
           
@@ -60,7 +60,7 @@
           var pos = new L.LatLng(48.84594,2.37182);
           
         var content = "<table class='table table-striped table-bordered table-condensed'> <tr><td>Le truc à voir</td></tr></table>"
-		var myicon = L.icon({iconUrl: 'labas.png'});
+		var myicon = L.icon({iconUrl: '../static/img/labas.png'});
         var marker = L.marker(pos, {icon: myicon}).bindPopup(content);
         marker.addTo(map);
         
