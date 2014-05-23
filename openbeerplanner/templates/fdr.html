@@ -41,16 +41,9 @@
 						</div>
 						<hr>
 						<div class="center">
-							<!-- section piéton-->
-							<img class="img" src="../static/img/pieton.jpg"/>
-							<!-- séparateur aller-->
-							<img class="img" src="../static/img/arrow-right.jpg"/>
-							<!-- section TC-->
-							<img class="img" src="../static/img/bus.jpg"/>
-							<!-- séparateur aller-->
-							<img class="img" src="../static/img/arrow-right.jpg"/>
-							<!-- section piéton-->
-							<img class="img" src="../static/img/pieton.jpg"/>
+                            {% for mode in item.journey.modes %}
+                            <img class="img" src="../static/img/{{mode}}.jpg"/>
+                            {% endfor %}
 							{% if item.journey.duration %}
 							<p>
 							Aller - Durée: {{ item.journey.duration }} minutes
