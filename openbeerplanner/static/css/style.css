@@ -20,12 +20,69 @@ html, body {
 	width: 640px;
 }
 
- .container.home{
-	/*background: white url("../img/list_main.jpg") no-repeat;*/
+ .row.shoes{
+	background: white url("../img/shoes.png") no-repeat;
 	width: 640px;
-	height: 800px;
+	height: 200px;
 }
 
+ .row.overwrite{
+	width: 640px;
+}
+
+ .container.home1{
+	background: white url("../img/home_1.png") no-repeat;
+	width: 640px;
+	height: 300px;
+	padding: 0;
+}
+
+ .container.home_text{
+	width: 640px;
+
+}
+
+.texter{
+	padding: 0;
+	font-size: 24px;
+	padding-left: 40%;
+}
+
+ .container.home2{
+	background: white url("../img/home_2.png") no-repeat;
+	width: 640px;
+	height: 310px;
+	padding-top: 12%;
+	color: white;
+	font-size: 36px;
+	padding-left: 20%;
+}
+ .container.home3{
+	background: white url("../img/home_3.png") no-repeat;
+	width: 640px;
+	height: 175px;
+	padding-left: 20%;
+	display: inline-block;
+	padding-top: 12%;
+	color: white;
+	font-size: 36px;
+}
+
+.home_button_label{
+	width: 640px;
+	height: 175px;
+	list-style-type: none;
+	margin-left: 40%;
+	padding-top: 75px;
+	color: white;
+}
+
+
+.shoes{
+	background: white url("../img/shoes.png") no-repeat;
+	width: 640px;
+}
+}
 
 .list_list{
 	width: 60%;

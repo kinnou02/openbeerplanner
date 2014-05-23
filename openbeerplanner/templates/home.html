@@ -15,39 +15,38 @@
   <body>
     <header class="header">
     </header>
-	<div class="container home">
+	<div class="container home1">
       <form class="navbar-form navbar-left">
         <div class="form-group"></div>
-        <div class="row">
+        
+		<div class="row overwrite">
+		
           <div class="col-md-6">
+		   <B>Temps disponible</B>
           <div class="range range-primary">
             <input type="range" name="range" min="1" max="5" value="3" id="rangePrimary" onchange="hourgetter();">
             <output id="rangePrimaryOutput" value="2" style="visibility: hidden;"></output>
           </div>
         </div>
         </div>
-		<span id="hour">2h00</span>
-		<hr>
-		<div class="row">
+		<div class="contenair home_text"><span id="hour" class="texter" >2h00</span></div>
+		
+		<div class="row shoes">
           <div class="col-md-6">
+		  <b>Humeur</b>
             <div class="range range-success">
 			   <input type="range" name="range" min="1" max="3" value="2" id="rangeSuccess" onchange="shoesgetter();">
 			   <output id="rangeSuccessOutput" value="2" style="visibility: hidden;"></output>
             </div>
           </div>
         </div>
-		<span id="shoes">basket</span>
+		</div>
       </form>
-      <p>Vous êtes à l'espace Hector Malot, chez Canal TP.<br></p>
-      <p>Il est <span id="time"></span>.</p>
-      <span><img class="img" src="https://builder.divshot.com/img/placeholder-100x100.gif">Le temps est clair.</span>
-    </div>
-    <div class="container">
-      <p></p>
-    </div>
-    <div class="container">
-      <a href="list?time=3&humor=2" id="button" class="btn btn-block btn-primary btn-lg">GO!</a>
-    </div>
+	  <div class="container home2">
+		  <p>Départ <b>rue Hector Malot.</b><br></p>
+		  <p>Retour prévu: <b><span id="time"></span>.</b></p>
+	  </div>
+      <a href="list?time=3&humor=2" id="button" class="container home3">Lancer les recherches!</a>
 		<footer class="footer"></footer>
   </body>
 
