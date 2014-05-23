@@ -118,7 +118,7 @@ def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fas
 def check_happy_hours(amenity):
     logging.debug(amenity.happy_hours) 
     definition = OpeningHours(amenity.happy_hours)
-    return definition.is_open("fr", "18:00") 
+    return definition.is_open("fr", "19:00") #là, je fixe en dur la valeur de comparaison
 
 def get_amenity (id):
     api = OsmApi()
