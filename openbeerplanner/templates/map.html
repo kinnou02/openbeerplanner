@@ -56,8 +56,8 @@
         marker_od.addTo(map);
           
         // ajout du marqueur sur le lieu visé  
-        //var pos = new L.LatLng({{amenity.coord.lat}},{{amenity.coord.lon}});  
-          var pos = new L.LatLng(48.84594,2.37182);
+        var pos = new L.LatLng({{amenity.coord.lat}},{{amenity.coord.lon}});  
+         // var pos = new L.LatLng(48.84594,2.37182);
           
         var content = "<table class='table table-striped table-bordered table-condensed'> <tr><td>Le truc à voir</td></tr></table>"
 		var myicon = L.icon({iconUrl: '../static/img/labas.png'});
