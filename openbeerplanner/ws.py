@@ -91,7 +91,7 @@ def counters(amenities):
 
 def filter(amenities):
     random.shuffle(amenities)
-    return amenities[0:9]
+    return amenities[0:10]
 
 def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
     anemities = []
