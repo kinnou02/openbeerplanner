@@ -181,7 +181,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 250px;
+	height:130px;
 	color: white;
 	margin: auto;
 }
@@ -192,7 +192,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 250px;
+	height: 130px;
 	color: white;
 	margin: auto;
 }
@@ -203,7 +203,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 250px;
+	height: 130px;
 	color: white;
 	margin: auto;
 }
@@ -214,7 +214,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 250px;
+	height: 130px;
 	color: white;
 	margin: auto;
 }
@@ -225,7 +225,29 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 250px;
+	height: 130px;
+	color: white;
+	margin: auto;
+}
+
+.map {
+	background: white url("../img/gotomap.png") no-repeat;
+	width: 640px;
+	padding:0;
+	margin-left: 0;
+	list-style-type: none;
+	height: 144px;
+	color: white;
+	margin: auto;
+	display: inline-block;
+}
+.plan {
+	background: white url("../img/plan.png") no-repeat;
+	width: 640px;
+	padding:0;
+	margin-left: 0;
+	list-style-type: none;
+	height: 145px;
 	color: white;
 	margin: auto;
 }
@@ -374,15 +396,13 @@ html, body {
 }
 
 .carousel-control.right {
-    background-image:none;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 100%);
     background-repeat: repeat-x;
     left: auto;
     right: 0;
 }
 
 .carousel-control.left {
-    background-image:none;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 100%);
     background-repeat: repeat-x;
-    left: auto;
-    right: 0;
 }

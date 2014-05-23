@@ -33,28 +33,30 @@
                   <blockquote class="overwrite">
 					  <div class="row overwrite">
 					  <div class="center">
-						<hr>
 						<div class="center">
                     
 							Proposition {{loop.index}}/{{amenities|length}}
         
 						</div>
-						<hr>
-						<div class="center">
+						 <div class="center fdr plan">
                             {% for mode in item.journey.modes %}
 							{{mode}}
-                            <img class="img" src="../static/img/{{mode}}.jpg"/>
+							{% if loop.index == 1 %}
+							<img class="img" src="../static/img/separator.png"/>
+							{% endif %}
+                            <img class="img" src="../static/img/{{mode}}.png"/>
                             {% endfor %}
 							{% if item.journey.duration %}
 							<p>
-							Aller - Durée: {{ item.journey.duration }} minutes
+							Aller - Durée: <b>{{ item.journey.duration }} minutes</b>
 							</p>
 							{% endif %}
 						</div>
-						<hr>
                         
                         <div class="center fdr {{ item.type }}">
 						<span class="texter2"><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
+						</div>
+						<div class="center fdr {{ item.type }}">
                             {% if item.brewery %}
                             <p>
                                 <B>Type de bières</B>
@@ -70,12 +72,16 @@
                                 Type de cuisine: {{ item.cuisine }}.
                             </p>
                             {% endif %}
+							</div>
                             {% if item.house_number and item.street %}
-                            <p>
+                            <div class="center fdr {{ item.type }}">
+							<p>
                             Adresse: {{ item.house_number }} {{item.street}}.
                             </p>
+							</div>
                             {% endif %}
                             <p>
+							<div class="center fdr {{ item.type }}">
                             {% if not item.opening_hours  %}
                                 Horaires ouvertures: NC
                             {% else %}
@@ -87,10 +93,11 @@
                                 Happy Hour: hhHmm à hhHmm
                             </p>
                             {% endif %}
+							</div>
+							
 						</div>
-						<div class="center">
-							<a href="/map/{{item.id}}" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
-							<hr>
+						<a href="/map/{{item.id}}" id="button" class="center fdr map"></a>
+						 <div class="center fdr plan">
 							<!-- section piéton-->
 							<img class="img" src="../static/img/pieton.jpg"/>
 							<!-- séparateur aller-->
