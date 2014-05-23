@@ -90,9 +90,8 @@ def counters(amenities):
     return res
 
 def filter(amenities):
-    return [random.choice(amenities) for i in range(10)]
-
-
+    random.shuffle(amenities)
+    return amenities[0:9]
 
 def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
     anemities = []
@@ -125,12 +124,10 @@ def finish_happy_hours(chaine):
     definition = OpeningHours(chaine)
     return definition.minutes_to_closing("fr", "19:00") #ici, je fixe en dur la valeur de comparaison
 
-
 def get_amenity (id):
     api = OsmApi()
     dico = api.NodeGet(id)
     return build_amenity(dico, 'tag')
-
     
 def build_amenity(elem, mon_tag ) :
         #logging.debug(elem)
@@ -163,9 +160,7 @@ def build_amenity(elem, mon_tag ) :
                 
             if elem[mon_tag].has_key('brewery'):
                 anemity.brewery = elem[mon_tag]['brewery'].split(';')
-            
-            
-             
+                                    
             #logging.debug(anemity.happy_hours)
             return anemity
         else :
