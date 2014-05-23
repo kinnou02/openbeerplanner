@@ -21,7 +21,7 @@
       margin: 0;
     }
     html, body, #map {
-      height: 70%;
+      height: 90%;
       width: 100%;
     }
   </style>
@@ -30,17 +30,18 @@
   <body>
     <header class="header">
     </header>
-    </header>
+
        <div id="map"></div>
     <footer class="footer"></footer>
        <div class="center">
+           
        	<div id="countdown"></div>
        </div> 			 	
     <footer></footer>
   
       <script>
 	  var attr_osm = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors'  
-      var osm = new L.TileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {opacity: 0.7, attribution: attr_osm});
+      var osm = new L.TileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {opacity: 0.7, attribution: attr_osm});
       var map = new L.Map('map').addLayer(osm).setView(new L.LatLng(48.84702,2.37705), 18);    
       var baseMaps = { "Fond de carte OSM": osm };
       var overlayMaps = {}; // ce truc ne sert à rien ...
@@ -56,8 +57,8 @@
         marker_od.addTo(map);
           
         // ajout du marqueur sur le lieu visé  
-        //var pos = new L.LatLng({{amenity.coord.lat}},{{amenity.coord.lon}});  
-          var pos = new L.LatLng(48.84594,2.37182);
+        var pos = new L.LatLng({{amenity.coord.lat}},{{amenity.coord.lon}});  
+         // var pos = new L.LatLng(48.84594,2.37182);
           
         var content = "<table class='table table-striped table-bordered table-condensed'> <tr><td>Le truc à voir</td></tr></table>"
 		var myicon = L.icon({iconUrl: '../static/img/labas.png'});
@@ -70,6 +71,18 @@
     	[pos_od]
 		]);
         
+        //localiser l'utilisateur 
+        map.locate({setView: true, follow: true})
+                .on('locationfound', function(e){
+                console.log("localisation utilisateur réussie");
+                    var marker = L.marker([e.latlng.lat, e.latlng.lng],{icon: L.icon({iconUrl: '../static/img/moi.png'})} ).bindPopup('Vous êtes par ici');
+                    map.addLayer(marker);
+                })
+               .on('locationerror', function(e){
+                    console.log(e);
+                    alert("échec de localisation de l'utilisateur");
+                });
+          
         // tracer le chemin entre les points
         // récupérer les points intermédiaires via navitia 
         	// (attention, les coordonnées sont à l'envers, il faut appliquer [].reverse() sur le couple)  
