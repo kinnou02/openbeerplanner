@@ -74,28 +74,28 @@
 							</div>
 													
 								<div class="center fdr {{ item.type }}">
-								{% if item.house_number and item.street %}
-									<span class="reduced2">
-									Adresse: {{ item.house_number }} {{item.street}}.
-									</span>
-								{% endif %}
-									<span class="reduced3">
+								<span class="reduced3">
 									{% if not item.opening_hours  %}
 										Horaires ouvertures: NC
 									{% else %}
 										Horaires ouvertures: {{ item.opening_hours }}
 									{% endif %}
 									</span>
-							
-								{% if item.happy_hours %}
+									{% if item.house_number and item.street %}
+										<span class="reduced2">
+										Adresse: {{ item.house_number }} {{item.street}}.
+										</span>
+									{% endif %}
+
+								{% if item.is_happy_hours %}
 								<div class="center fdr happyhours">
 								<p>
-									<span class="happyhourstext">{{ item.opening_hours }}</span>
+									<span class="happyhourstext">Maintenant, pour encore {{ item.end_happy_hours }} minutes!</span>
 								</p>
 								</div>
 								{% endif %}
 							
-							<a href="/map/{{item.id}}" id="button" class="center fdr map"></a>
+							<div class="center fdr map"><a href="/map/{{item.id}}" class="gotomap"></a></div>
 							<div class="center fdr plan">
 								{% for mode in item.journey.modes %}
 								{% if loop.index < 4 %}

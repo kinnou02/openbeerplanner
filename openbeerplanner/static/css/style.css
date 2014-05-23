@@ -160,6 +160,12 @@ html, body {
 	height: 60px;
 	display: block;
 }
+.gotomap {
+	float: left;
+	width: 644px;
+	height: 144px;
+	display: block;
+}
 
 .reduced {
 	width: 30%;
