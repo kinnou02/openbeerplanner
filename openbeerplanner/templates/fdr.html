@@ -59,7 +59,7 @@
                     </div>
                 <hr>
                     <div>
-                        <span><img class="img" src="../static/img/"/>{{ item.type }}: {{ item.name }}</span>
+                        <span><img class="img" src="../static/img/{{item.type}}.jpg"/>{{ item.type }}: {{ item.name }}</span>
                         <div class="center">
                             {% if item.brewery %}
                             <p>
@@ -71,26 +71,16 @@
                                 </ul>
                             </p>
                             {% endif %}
-                            {% if item.type == 'fast_food' %}
-                            <p>
-                                Type de trucs pas bons
-                                <ul>
-                                    <li>frites sèches</li>
-                                    <li>coca tiède</li>
-                                    <li>cheeseburgers mous</li>
-                                </ul>
-                            </p>
-                            {% endif %}
                             {% if item.cuisine %}
                             <p>
                                 Type de cuisine: {{ item.cuisine }}.
                             </p>
                             {% endif %}
                             <p>
-                            {% if item.opennig_hours %}
+                            {% if not item.opening_hours  %}
                                 Horaires ouvertures: NC
                             {% else %}
-                                Horaires ouvertures: {{ item.opennig_hours }}
+                                Horaires ouvertures: {{ item.opening_hours }}
                             {% endif %}
                             </p>
                             {% if item.type == 'bar' or item.type == 'pub' %}
