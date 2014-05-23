@@ -84,77 +84,18 @@
                 });
           
         // tracer le chemin entre les points
-        // 
-        var chemin = '{{amenity.journey.geojson[0]|escape|safe}}'
-		console.log(chemin)
-        
-        // récupérer les points intermédiaires via navitia 
-        	// (attention, les coordonnées sont à l'envers, il faut appliquer [].reverse() sur le couple)  
-        var trace = [
-        [
-            2.3771293150302433,
-            48.84690560664483
-        ].reverse(),
-        [
-            2.377052,
-            48.846852
-        ].reverse(),
-        [
-            2.376759,
-            48.846646
-        ].reverse(),
-        [
-            2.376692,
-            48.846611
-        ].reverse(),
-        [
-            2.376638,
-            48.846585
-        ].reverse(),
-        [
-            2.376032,
-            48.846186
-        ].reverse(),
-        [
-            2.3757,
-            48.846139
-        ].reverse(),
-        [
-            2.374414,
-            48.845988
-        ].reverse(),
-        [
-            2.374327,
-            48.845978
-        ].reverse(),
-        [
-            2.373967,
-            48.845936
-        ].reverse(),
-        [
-            2.373875,
-            48.845926
-        ].reverse(),
-        [
-            2.373365,
-            48.845867
-        ].reverse(),
-        [
-            2.372505,
-            48.845769
-        ].reverse(),
-        [
-            2.37232,
-            48.845977
-        ].reverse(),
-        [
-            2.37218,
-            48.846098
-        ].reverse()
+        //
+        // récupérer les points intermédiaires via navitia et les remettre à l'endroit
+        var geojson = {{amenity.journey.geojson[0]|escape|safe}}
+        var chemin = []
+        for (var i = 0; i < geojson.length; i++) 
+        { 
 
-    ]        
-         
-       // var le_chemin = L.polyline(trace, {color: 'red'}).addTo(map);  
+           chemin.push(geojson[i].reverse())
+        }
+          //dessiner le tout
+  		 var le_chemin = L.polyline(chemin, {color: 'red'}).addTo(map);      
+ 
     
   </script>
 
