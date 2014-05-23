@@ -170,16 +170,6 @@ html, body {
     cursor: pointer;
 }
 
-.center .fdr {
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height: 500px;
-	color: white;
-	margin: auto;
-}
-
 .center .fdr .bar {
 background: white url("../img/detail_bar.png") no-repeat;
 width: 640px;
