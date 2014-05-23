@@ -38,11 +38,13 @@
 						</div>
 						 <div class="center fdr plan">
                             {% for mode in item.journey.modes %}
+							{% if loop.index < 4 %}
 							{% if loop.index != 1 %}
 							<img class="img3" src="../static/img/separator.png"/>
 							{% endif %}
                             <img  class="img3"  src="../static/img/{{mode}}.png"/>
-                            {% endfor %}
+                            {% endif %}
+							{% endfor %}
 							{% if item.journey.duration %}
 							<p>
 							<span style="margin-left: 50px">Aller - Durée: <b>{{ item.journey.duration }} minutes</b></span>
@@ -113,7 +115,6 @@
       </div>                          
  
     </div>
-	</div>
 	</div>
 	
     <footer class="footer"></footer>
