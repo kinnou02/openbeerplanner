@@ -100,6 +100,11 @@ html, body {
 
 .container {
 	padding: 0px;
+	margin: auto;
+}
+
+.container.center {
+	padding: 0px;
 }
 
 
