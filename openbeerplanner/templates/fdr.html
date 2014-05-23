@@ -42,6 +42,7 @@
 						<hr>
 						<div class="center">
                             {% for mode in item.journey.modes %}
+							{{mode}}
                             <img class="img" src="../static/img/{{mode}}.jpg"/>
                             {% endfor %}
 							{% if item.journey.duration %}
@@ -53,7 +54,7 @@
 						<hr>
                         
                         <div class="center fdr {{ item.type }}">
-						<span class="texter2"><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.name }}</span>
+						<span class="texter2"><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
                             {% if item.brewery %}
                             <p>
                                 <B>Type de bières</B>
@@ -81,7 +82,11 @@
                                 Horaires ouvertures: {{ item.opening_hours }}
                             {% endif %}
                             </p>
-                            
+                            {% if item.type == 'bar' or item.type == 'pub' %}
+                            <p>
+                                Happy Hour: hhHmm à hhHmm
+                            </p>
+                            {% endif %}
 						</div>
 						<div class="center">
 							<a href="/map/{{item.id}}" class="btn btn-block btn-primary btn-lg">Voir le détail</a>

@@ -372,3 +372,17 @@ html, body {
 .range.range-danger input[type="range"] {
     outline-color: rgb(217, 83, 79);
 }
+
+.carousel-control.right {
+    background-image:none;
+    background-repeat: repeat-x;
+    left: auto;
+    right: 0;
+}
+
+.carousel-control.left {
+    background-image:none;
+    background-repeat: repeat-x;
+    left: auto;
+    right: 0;
+}
