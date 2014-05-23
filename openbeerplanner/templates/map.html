@@ -30,7 +30,7 @@
   <body>
     <header class="header">
     </header>
-    </header>
+
        <div id="map"></div>
     <footer class="footer"></footer>
        <div class="center">
@@ -70,8 +70,8 @@
     	[pos_od]
 		]);
         
-         //localiser l'utilisateur 
-          map.locate({setView: true, follow: true})
+        //localiser l'utilisateur 
+        map.locate({setView: true, follow: true})
                 .on('locationfound', function(e){
                 console.log("localisation utilisateur réussie");
                     var marker = L.marker([e.latlng.lat, e.latlng.lng],{icon: L.icon({iconUrl: '../static/img/moi.png'})} ).bindPopup('Vous êtes par ici');
