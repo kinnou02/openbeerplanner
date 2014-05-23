@@ -70,6 +70,7 @@ class Anemity(object):
         self.street = None
         self.opening_hours = None
         self.happy_hours = None
+        self.is_happy_hours = False
         self.phone = None
         self.brewery = []
 
@@ -111,14 +112,13 @@ def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fas
         #logging.debug(truc)
         if truc :
             anemities.append(truc)
-            if truc.happy_hours :
-                logging.debug(check_happy_hours(truc)) 
+            #if truc.happy_hours :
+             #   logging.debug(check_happy_hours(truc)) 
     return anemities
 
-def check_happy_hours(amenity):
-    logging.debug(amenity.happy_hours) 
-    definition = OpeningHours(amenity.happy_hours)
-    return definition.is_open("fr", "19:00") #là, je fixe en dur la valeur de comparaison
+def check_happy_hours(chaine): 
+    definition = OpeningHours(chaine)
+    return definition.is_open("fr", "19:00") #ici, je fixe en dur la valeur de comparaison
 
 def get_amenity (id):
     api = OsmApi()
@@ -152,9 +152,12 @@ def build_amenity(elem, mon_tag ) :
                 
             if elem[mon_tag].has_key('happy_hours'):
                 anemity.happy_hours = elem[mon_tag]['happy_hours']
+                anemity.is_happy_hours = check_happy_hours(anemity.happy_hours)
                 
             if elem[mon_tag].has_key('brewery'):
                 anemity.brewery = elem[mon_tag]['brewery'].split(';')
+            
+            
              
             #logging.debug(anemity.happy_hours)
             return anemity
