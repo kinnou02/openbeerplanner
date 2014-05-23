@@ -4,6 +4,7 @@ from collections import defaultdict
 import random
 from osmapi import OsmApi
 import json
+from opening_hours import OpeningHours
 __all__ = ['journeys']
 
 URL_NAVITIA = 'https://api.navitia.io/v1/'
@@ -110,9 +111,12 @@ def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fas
         #logging.debug(truc)
         if truc :
             anemities.append(truc)
-    #logging.debug(truc.happy_hours)   
+    #logging.debug(truc.happy_hours) 
+    definition = OpeningHours("Mo-Fr 12:00-22:00; Sa-Su 17:00-18:00")
+    logging.debug(definition.is_open("tu", "15:00") ) 
     return anemities
 
+def check_happy_hours(a)
 
 def get_amenity (id):
     api = OsmApi()
