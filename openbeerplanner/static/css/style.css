@@ -154,6 +154,30 @@ html, body {
 	padding: 20px;
 }
 
+.reduced {
+	width: 30%;
+	float: left;
+	list-style: none;
+	font-size: 18px;
+	color: white;
+}
+
+.reduced2{
+	width: 50%;
+	float: left;
+	list-style: none;
+	font-size: 24px;
+	color: white;
+}
+
+.reduced3{
+	width: 50%;
+	float: right;
+	list-style: none;
+	font-size: 24px;
+	color: white;
+
+}
 
 .center { 
 	margin: auto;
