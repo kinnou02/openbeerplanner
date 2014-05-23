@@ -85,15 +85,8 @@
           
         // tracer le chemin entre les points
         // 
-        console.log( '{{amenity.journey.geojson[0]}}')
-        L.geoJson('{{amenity.journey.geojson[0]}}', {
-    style: function (feature) {
-        return {color: feature.properties.color};
-    },
-    onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.description);
-    }
-}).addTo(map);
+        var chemin = '{{amenity.journey.geojson[0]|escape|safe}}'
+		console.log(chemin)
         
         // récupérer les points intermédiaires via navitia 
         	// (attention, les coordonnées sont à l'envers, il faut appliquer [].reverse() sur le couple)  
