@@ -60,7 +60,7 @@
 									<B>Type de bières</B>
 									<ul>
 										{% for brew in item.brewery %}
-										<li>{{brew}}</li>
+										<li class="reduced">{{brew}}</li>
 										{% endfor %}
 									</ul>
 								</p>
@@ -71,26 +71,35 @@
 								</p>
 								{% endif %}
 							</div>
-                            {% if item.house_number and item.street %}
-                            <div class="center fdr {{ item.type }}">
-								<p>
-								Adresse: {{ item.house_number }} {{item.street}}.
-								</p>
+							
+							<div class="center fdr bar">
+									<span class="reduced2">
+									Adresse: 19 rue de la Pompe, 75014 Paris
+									</span>
+									<span class="reduced3">
+										Ouverture: de 10h00 à 11h00 tous les jours
+									</span>
 							</div>
-                            {% endif %}
-                            <p>
-							<div class="center fdr {{ item.type }}">
-								{% if not item.opening_hours  %}
-									Horaires ouvertures: NC
-								{% else %}
-									Horaires ouvertures: {{ item.opening_hours }}
+							
+							
+								<div class="center fdr {{ item.type }}">
+								{% if item.house_number and item.street %}
+									<span class="reduced2">
+									Adresse: {{ item.house_number }} {{item.street}}.
+									</span>
 								{% endif %}
-								</p>
-							</div>
+									<span class="reduced3">
+									{% if not item.opening_hours  %}
+										Horaires ouvertures: NC
+									{% else %}
+										Horaires ouvertures: {{ item.opening_hours }}
+									{% endif %}
+									</span>
+							
 								{% if item.happy_hours %}
 								<div class="center fdr happyhours">
 								<p>
-									<span class="happyhourstext">De {{ item.opening_hours }}</span>
+									<span class="happyhourstext">{{ item.opening_hours }}</span>
 								</p>
 								</div>
 								{% endif %}
