@@ -56,8 +56,8 @@ html, body {
 	
 .btnback{
 	width: 100px;
-	height: 60px;
-	background: white url("../img/home_1.png") no-repeat;
+	height: 100px;
+	background: white url("../img/arrow_left.jpg") no-repeat;
 }
 	
  .container.home1{
