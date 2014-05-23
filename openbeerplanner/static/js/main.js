@@ -5,12 +5,6 @@ $(document).ready(function() {
     pause: true,
 	interval: 0,
   });
-  
-  
-today=new Date();
-	today.setTime(today.getTime()+120*60*1000);
-	dateheure = today.getHours() + ":" + today.getMinutes();
-  document.getElementById("time").innerHTML=dateheure;
 });
 
 
