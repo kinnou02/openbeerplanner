@@ -86,12 +86,15 @@
 									Horaires ouvertures: {{ item.opening_hours }}
 								{% endif %}
 								</p>
-								{% if item.type == 'bar' or item.type == 'pub' %}
-								<p>
-									Happy Hour: hhHmm à hhHmm
-								</p>
-								{% endif %}
 							</div>
+								{% if item.happy_hours %}
+								<div class="center fdr happyhours">
+								<p>
+									<span class="happyhourstext">De {{ item.opening_hours }}</span>
+								</p>
+								</div>
+								{% endif %}
+							
 							<a href="/map/{{item.id}}" id="button" class="center fdr map"></a>
 							<div class="center fdr plan">
 								{% for mode in item.journey.modes %}
