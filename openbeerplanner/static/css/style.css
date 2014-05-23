@@ -54,6 +54,12 @@ html, body {
 	border:0;
 	}
 	
+.btnback{
+	width: 100px;
+	height: 60px;
+	background: white url("../img/home_1.png") no-repeat;
+}
+	
  .container.home1{
 	background: white url("../img/home_1.png") no-repeat;
 	width: 640px;
@@ -238,7 +244,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height:130px;
+	height:100px;
 	color: white;
 	margin: auto;
 }
@@ -249,7 +255,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 130px;
+	height: 100px;
 	color: white;
 	margin: auto;
 }
@@ -260,7 +266,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 130px;
+	height: 100px;
 	color: white;
 	margin: auto;
 }
@@ -288,7 +294,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 130px;
+	height: 100px;
 	color: white;
 	margin: auto;
 }
@@ -299,7 +305,7 @@ html, body {
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
-	height: 130px;
+	height: 100px;
 	color: white;
 	margin: auto;
 }

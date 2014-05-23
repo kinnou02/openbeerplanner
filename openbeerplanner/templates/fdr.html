@@ -34,17 +34,19 @@
                   <blockquote class="overwrite">
 					  <div class="row overwrite">
 						  <div class="center">
-								Proposition {{loop.index}}/{{amenities|length}}
+								<span class="greyheader">Proposition {{loop.index}}/{{amenities|length}}</span>
 							</div>
 							<div class="center fdr plan">
-								{% for mode in item.journey.modes %}
-								{% if loop.index < 4 %}
-								{% if loop.index != 1 %}
-								<img class="img3" src="../static/img/separator.png"/>
-								{% endif %}
-								<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
-								{% endif %}
-								{% endfor %}
+								<div class="contenair">
+									{% for mode in item.journey.modes %}
+									{% if loop.index < 4 %}
+									{% if loop.index != 1 %}
+									<img class="img3" src="../static/img/separator.png"/>
+									{% endif %}
+									<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
+									{% endif %}
+									{% endfor %}
+								</div>
 								{% if item.journey.duration %}
 								<p>
 								<span style="margin-left: 50px">Aller - Durée: <b>{{ item.journey.duration }} minutes</b></span>
@@ -99,14 +101,16 @@
 								</a>
 							</div>
 							<div class="center fdr plan">
-								{% for mode in item.journey.modes %}
-								{% if loop.index < 4 %}
-								{% if loop.index != 1 %}
-								<img class="img3" src="../static/img/reverseseparator.png"/>
-								{% endif %}
-								<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
-								{% endif %}
-								{% endfor %}
+								<div class="contenair">
+									{% for mode in item.journey.modes %}
+									{% if loop.index < 4 %}
+									{% if loop.index != 1 %}
+									<img class="img3" src="../static/img/reverseseparator.png"/>
+									{% endif %}
+									<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
+									{% endif %}
+									{% endfor %}
+								</div>
 								{% if item.journey.duration %}
 								<p>
 								<span style="margin-left: 50px">Retour - Durée: <b>{{ item.journey.duration }} minutes</b></span>
@@ -116,7 +120,7 @@
 							<div class="center">
 								<hr>
 								<span>
-									Proposition {{loop.index}}/{{amenities|length}}
+									<span class="greyheader">Proposition {{loop.index}}/{{amenities|length}}</span>
 								</span>
 							</div>
 				</blockquote>
