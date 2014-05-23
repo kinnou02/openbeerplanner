@@ -69,6 +69,11 @@
                                 Type de cuisine: {{ item.cuisine }}.
                             </p>
                             {% endif %}
+                            {% if item.house_number and item.street %}
+                            <p>
+                            Adresse: {{ item.house_number }} {{item.street}}.
+                            </p>
+                            {% endif %}
                             <p>
                             {% if not item.opening_hours  %}
                                 Horaires ouvertures: NC
