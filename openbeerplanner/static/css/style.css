@@ -124,13 +124,14 @@ html, body {
 	list-style-type: none;
 	height: 200px;
 	margin-left: 40%;
-	padding-top: 10%;
+	padding-top: 5%;
 	color: white;
+	font-size: 30px;
 }
 
 .list_list a{
 	color: white !important;
-	font-size: 36px;
+	font-size: 80px;
 }
 
 .container {
