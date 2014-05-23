@@ -83,6 +83,11 @@ html, body {
 	width: 640px;
 }
 
+.map{
+	width: 640px;
+	height: 800px;
+}
+
 .list_list{
 	width: 60%;
 	padding:0;
