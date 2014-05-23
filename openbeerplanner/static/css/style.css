@@ -52,14 +52,9 @@ html, body {
 	margin-right: 0;
 	margin-left: 0;
 	border:0;
-	}
-	
-.btnback{
-	width: 100px;
-	height: 100px;
-	background: white url("../img/arrow_left.jpg") no-repeat;
 }
-	
+
+
  .container.home1{
 	background: white url("../img/home_1.png") no-repeat;
 	width: 640px;
