@@ -154,6 +154,13 @@ html, body {
 	padding: 20px;
 }
 
+.backtohome {
+	float: left;
+	width: 60px;
+	height: 60px;
+	display: block;
+}
+
 .reduced {
 	width: 30%;
 	float: left;
