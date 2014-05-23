@@ -5,7 +5,36 @@
 /* Put your CSS here */
 html, body {
     margin: 20px;
+	width: 640px;
+	height: 1136px;
+	font-family: Calibri, Arial, sans-serif;
 }
+
+ .container.resultat{
+	background: white url("../img/list_main.jpg") no-repeat;
+	width: 640px;
+	height: 800px;
+}
+
+.list_list{
+	width: 60%;
+	padding:0;
+	list-style-type: none;
+	height: 200px;
+	margin-left: 40%;
+	padding-top: 10%;
+	color: white;
+}
+
+.list_list a{
+	color: white !important;
+	font-size: 36px;
+}
+
+.container {
+	padding: 0px;
+}
+
 
 .error-messages{
     color: red;
@@ -24,7 +53,15 @@ html, body {
 }
 /* sliders*/
 
+.header {
+	background: white url("../img/headerlol.png") no-repeat;
+	height: 80px;
+}
 
+.footer {
+	background: white url("../img/footer.jpg") no-repeat;
+	height: 80px;
+}
 
 .range {
     display: table;
