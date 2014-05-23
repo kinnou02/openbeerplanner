@@ -148,6 +148,13 @@ html, body {
 	width: 80px;
 }
 
+.img3 { 
+	width: 100px;
+	height: 100px;
+	padding: 20px;
+}
+
+
 .center { 
 	margin: auto;
 }

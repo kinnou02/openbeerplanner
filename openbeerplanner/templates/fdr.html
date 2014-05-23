@@ -40,15 +40,14 @@
 						</div>
 						 <div class="center fdr plan">
                             {% for mode in item.journey.modes %}
-							{{mode}}
-							{% if loop.index == 1 %}
-							<img class="img" src="../static/img/separator.png"/>
+							{% if loop.index != 1 %}
+							<img class="img3" src="../static/img/separator.png"/>
 							{% endif %}
-                            <img class="img" src="../static/img/{{mode}}.png"/>
+                            <img  class="img3"  src="../static/img/{{mode}}.png"/>
                             {% endfor %}
 							{% if item.journey.duration %}
 							<p>
-							Aller - Durée: <b>{{ item.journey.duration }} minutes</b>
+							<span style="margin-left: 50px">Aller - Durée: <b>{{ item.journey.duration }} minutes</b></span>
 							</p>
 							{% endif %}
 						</div>
@@ -98,19 +97,7 @@
 						</div>
 						<a href="/map/{{item.id}}" id="button" class="center fdr map"></a>
 						 <div class="center fdr plan">
-							<!-- section piéton-->
-							<img class="img" src="../static/img/pieton.jpg"/>
-							<!-- séparateur aller-->
-							<img class="img" src="../static/img/arrow-left.jpg"/>
-							<!-- section TC-->
-							<img class="img" src="../static/img/bus.jpg"/>
-							<!-- séparateur aller-->
-							<img class="img" src="../static/img/arrow-left.jpg"/>
-							<!-- section piéton-->
-							<img class="img" src="../static/img/pieton.jpg"/>
-								<p>
-								Retour - Durée: xx minutes
-							</p>
+                            
 						</div>
                     <div class="center">
 						<hr>
