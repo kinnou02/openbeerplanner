@@ -41,7 +41,7 @@
 								{% if loop.index != 1 %}
 								<img class="img3" src="../static/img/separator.png"/>
 								{% endif %}
-								<img  class="img3"  src="../static/img/{{mode}}.png"/>
+								<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
 								{% endif %}
 								{% endfor %}
 								{% if item.journey.duration %}
@@ -99,7 +99,7 @@
 								{% if loop.index != 1 %}
 								<img class="img3" src="../static/img/reverseseparator.png"/>
 								{% endif %}
-								<img  class="img3"  src="../static/img/{{mode}}.png"/>
+								<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
 								{% endif %}
 								{% endfor %}
 								{% if item.journey.duration %}
