@@ -15,7 +15,7 @@
   
   <body>
     <header class="header">
-	<a class="backtohome" href="home.html"></a>
+	<a class="backtohome" href="/"></a>
     </header>
     <div class="row overwrite">
     <div class='col-md-offset-2 col-md-8 overwrite'>
@@ -74,7 +74,7 @@
 							</div>
 													
 								<div class="center fdr {{ item.type }}">
-								<span class="reduced3">
+								<span class="reduced2">
 									{% if not item.opening_hours  %}
 										Horaires ouvertures: NC
 									{% else %}
@@ -82,7 +82,7 @@
 									{% endif %}
 									</span>
 									{% if item.house_number and item.street %}
-										<span class="reduced2">
+										<span class="reduced3">
 										Adresse: {{ item.house_number }} {{item.street}}.
 										</span>
 									{% endif %}

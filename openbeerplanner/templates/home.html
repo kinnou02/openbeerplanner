@@ -22,16 +22,15 @@
    });
   </script>
     <header class="header">
-	<a class="backtohome" href="home.html"></a>
+	<a class="backtohome" href="/"></a>
     </header>
 	<div class="container home1">
       <form class="navbar-form navbar-left">
         <div class="form-group"></div>
         
 		<div class="row overwrite">
-		
-          <div class="col-md-6">
-		   <B>Temps disponible</B>
+          <div style="width:640px">
+		  <span class="greyheader">Temps disponible</span>
           <div class="range range-primary">
             <input type="range" name="range" min="1" max="5" value="3" id="rangePrimary" onchange="hourgetter();">
             <output id="rangePrimaryOutput" value="2" style="visibility: hidden;"></output>
@@ -41,16 +40,17 @@
 		<div class="contenair home_text"><span id="hour" class="texter" >2h00</span></div>
 		
 		<div class="row shoes">
-          <div class="col-md-6">
-		  <b>Humeur</b>
-            <div class="range range-success">
+          <div style="width:640px">
+		  <span class="greyheader">Humeur</span>
+            <div class="range range-primary">
 			   <input type="range" name="range" min="1" max="3" value="2" id="rangeSuccess" onchange="shoesgetter();">
 			   <output id="rangeSuccessOutput" value="2" style="visibility: hidden;"></output>
             </div>
           </div>
         </div>
-		</div>
+		<div class="row groles"></div>
       </form>
+	  </div>
 	  <div class="container home2">
 		  <p>Départ <b>rue Hector Malot.</b><br></p>
 		  <p>Retour prévu: <b><span id="time"></span>.</b></p>

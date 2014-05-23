@@ -20,10 +20,23 @@ html, body {
 	width: 640px;
 }
 
+.greyheader{
+	font-size: 24px;
+	font-style: bold;
+}
+
  .row.shoes{
+	width: 640px;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+ .row.groles{
 	background: white url("../img/shoes.png") no-repeat;
 	width: 640px;
 	height: 200px;
+	margin-right: 0;
+	margin-left: 0;
 }
 
  .row.overwrite{
@@ -44,7 +57,7 @@ html, body {
  .container.home1{
 	background: white url("../img/home_1.png") no-repeat;
 	width: 640px;
-	height: 300px;
+	height: 450px;
 	padding: 0;
 }
 
