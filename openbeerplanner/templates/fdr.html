@@ -107,7 +107,11 @@
 									{% if loop.index != 1 %}
 									<img class="img3" src="../static/img/reverseseparator.png"/>
 									{% endif %}
+									{% if mode|lower == 'walking' %}
+									<img  class="img3"  src="../static/img/reverse{{mode|lower}}.png"/>
+									{% else %}
 									<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
+									{% endif %}
 									{% endif %}
 									{% endfor %}
 								</div>
@@ -118,7 +122,6 @@
 								{% endif %}
 							</div>
 							<div class="center">
-								<hr>
 								<span>
 									<span class="greyheader">Proposition {{loop.index}}/{{amenities|length}}</span>
 								</span>
