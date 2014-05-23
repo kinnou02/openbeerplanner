@@ -170,9 +170,9 @@ html, body {
     cursor: pointer;
 }
 
-.center .fdr .bar {
-background: white url("../img/detail_bar.png") no-repeat;
-width: 640px;
+.bar {
+	background: white url("../img/detail_bar.png") no-repeat;
+	width: 640px;
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
@@ -180,9 +180,10 @@ width: 640px;
 	color: white;
 	margin: auto;
 }
-.center .fdr .pub {
-background: white url("../img/detail_pub.png") no-repeat;
-width: 640px;
+
+.pub {
+	background: white url("../img/detail_pub.png") no-repeat;
+	width: 640px;
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
@@ -190,9 +191,10 @@ width: 640px;
 	color: white;
 	margin: auto;
 }
-.center .fdr .cafe {
-background: white url("../img/detail_cafe.png") no-repeat;
-width: 640px;
+
+.cafe {
+	background: white url("../img/detail_cafe.png") no-repeat;
+	width: 640px;
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
@@ -200,9 +202,10 @@ width: 640px;
 	color: white;
 	margin: auto;
 }
-.center .fdr .fast_food {
-background: white url("../img/detail_fast_food.png") no-repeat;
-width: 640px;
+
+.fast_food {
+	background: white url("../img/detail_fast_food.png") no-repeat;
+	width: 640px;
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
@@ -210,9 +213,10 @@ width: 640px;
 	color: white;
 	margin: auto;
 }
-.center .fdr .restaurant {
-background: white url("../img/restaurant.png") no-repeat;
-width: 640px;
+
+.restaurant {
+	background: white url("../img/restaurant.png") no-repeat;
+	width: 640px;
 	padding:0;
 	margin-left: 0;
 	list-style-type: none;
