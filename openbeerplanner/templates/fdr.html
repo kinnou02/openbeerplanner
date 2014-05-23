@@ -16,53 +16,51 @@
   <body>
     <header class="header">
     </header>
-    <div class="container">
-      <div class='row'>
-    <div class='col-md-offset-2 col-md-8'>
+    <div class="row overwrite">
+    <div class='col-md-offset-2 col-md-8 overwrite'>
       <div class="carousel slide" data-ride="carousel" id="quote-carousel">
         <!-- Bottom Carousel Indicators -->
         
         <!-- Carousel Slides / Quotes -->
         <div class="carousel-inner">
-        
-        {% for item in amenities %}
-        {% if loop.index == 1 %}
-            <div class="item active">
-        {% else %}
-            <div class="item">
-        {% endif %}<li><a href="/amenity/{{item.id}}"></a></li>
-                  <blockquote>
-                  
-              <div class="row">
-              <div class="center">
-                <hr>
-                <div class="center">
+            {% for item in amenities %}
+			{% if loop.index == 1 %}
+				<div class="item active sizer">
+			{% else %}
+				<div class="item sizer">
+			{% endif %}
+			<li><a href="/amenity/{{item.id}}"></a></li>
+                  <blockquote class="overwrite">
+					  <div class="row overwrite">
+					  <div class="center">
+						<hr>
+						<div class="center">
                     
-                    Proposition {{loop.index}}/{{amenities|length}}
+							Proposition {{loop.index}}/{{amenities|length}}
         
-                </div>
-                <hr>
-                    <div class="center">
-                        <!-- section piéton-->
-                        <img class="img" src="../static/img/pieton.jpg"/>
-                        <!-- séparateur aller-->
-                        <img class="img" src="../static/img/arrow-right.jpg"/>
-                        <!-- section TC-->
-                        <img class="img" src="../static/img/bus.jpg"/>
-                        <!-- séparateur aller-->
-                        <img class="img" src="../static/img/arrow-right.jpg"/>
-                        <!-- section piéton-->
-                        <img class="img" src="../static/img/pieton.jpg"/>
-                        {% if item.journey.duration %}
-                        <p>
-                        Aller - Durée: {{ item.journey.duration }} minutes
-                        </p>
-                        {% endif %}
-                    </div>
-                <hr>
-                    <div>
-                        <span><img class="img" src="../static/img/{{item.type}}.jpg"/>{{ item.type }}: {{ item.name }}</span>
-                        <div class="center">
+						</div>
+						<hr>
+						<div class="center">
+							<!-- section piéton-->
+							<img class="img" src="../static/img/pieton.jpg"/>
+							<!-- séparateur aller-->
+							<img class="img" src="../static/img/arrow-right.jpg"/>
+							<!-- section TC-->
+							<img class="img" src="../static/img/bus.jpg"/>
+							<!-- séparateur aller-->
+							<img class="img" src="../static/img/arrow-right.jpg"/>
+							<!-- section piéton-->
+							<img class="img" src="../static/img/pieton.jpg"/>
+							{% if item.journey.duration %}
+							<p>
+							Aller - Durée: {{ item.journey.duration }} minutes
+							</p>
+							{% endif %}
+						</div>
+						<hr>
+                        
+                        <div class="center fdr {{ item.type }}">
+						<span><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
                             {% if item.brewery %}
                             <p>
                                 Type de bières
@@ -90,41 +88,43 @@
                                 Happy Hour: hhHmm à hhHmm
                             </p>
                             {% endif %}
-                        </div>
-                        <a href="/map/{{item.id}}" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
-                    </div>
-                <hr>
-                    <div>
-                        <!-- section piéton-->
-                        <img class="img" src="../static/img/pieton.jpg"/>
-                        <!-- séparateur aller-->
-                        <img class="img" src="../static/img/arrow-left.jpg"/>
-                        <!-- section TC-->
-                        <img class="img" src="../static/img/bus.jpg"/>
-                        <!-- séparateur aller-->
-                        <img class="img" src="../static/img/arrow-left.jpg"/>
-                        <!-- section piéton-->
-                        <img class="img" src="../static/img/pieton.jpg"/>
-                            <p>
-                            Retour - Durée: xx minutes
-                        </p>
+						</div>
+						<div class="center">
+							<a href="/map/{{item.id}}" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
+							<hr>
+							<!-- section piéton-->
+							<img class="img" src="../static/img/pieton.jpg"/>
+							<!-- séparateur aller-->
+							<img class="img" src="../static/img/arrow-left.jpg"/>
+							<!-- section TC-->
+							<img class="img" src="../static/img/bus.jpg"/>
+							<!-- séparateur aller-->
+							<img class="img" src="../static/img/arrow-left.jpg"/>
+							<!-- section piéton-->
+							<img class="img" src="../static/img/pieton.jpg"/>
+								<p>
+								Retour - Durée: xx minutes
+							</p>
+						</div>
                     <div class="center">
-                <hr>
-                <span>
-                    Proposition {{loop.index}}/{{amenities|length}}
-                </span>
-              </div>
-              </div>
-            </blockquote>
+						<hr>
+						<span>
+							Proposition {{loop.index}}/{{amenities|length}}
+						</span>
+					</div>
+			</div>
+		      </div>
+		   </blockquote>
           </div>
         {% endfor %}
-        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa"></i></a>
       </div>                          
+ 
     </div>
-      
-    </div>
+	</div>
+	</div>
+	
     <footer class="footer"></footer>
   </body>
-
 </html>

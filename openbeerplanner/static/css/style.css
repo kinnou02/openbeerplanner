@@ -28,8 +28,19 @@ html, body {
 
  .row.overwrite{
 	width: 640px;
+	padding: 0;
+	margin-right: 0;
+	margin-left: 0;
+	
 }
-
+.overwrite{
+	width: 640px;
+	padding: 0;
+	margin-right: 0;
+	margin-left: 0;
+	border:0;
+	}
+	
  .container.home1{
 	background: white url("../img/home_1.png") no-repeat;
 	width: 640px;
@@ -120,9 +131,16 @@ html, body {
     display: none;
 }
 
+.sizer {
+	width: 640px;
+}
 
 .img { 
 	width: 30px;
+}
+
+.img2 { 
+	width: 60px;
 }
 
 .center { 
@@ -150,6 +168,32 @@ html, body {
     -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+.center .fdr {
+	width: 640px;
+	padding:0;
+	margin-left: 0;
+	list-style-type: none;
+	height: 500px;
+	color: white;
+	margin: auto;
+}
+
+.bar {
+background: white url("../img/detail_bar.png") no-repeat;
+}
+.pub {
+background: white url("../img/detail_pub.png") no-repeat;
+}
+.cafe {
+background: white url("../img/detail_cafe.png") no-repeat;
+}
+.fast_food {
+background: white url("../img/detail_fast_food.png") no-repeat;
+}
+.restaurant {
+background: white url("../img/restaurant.png") no-repeat;
 }
 
 .range input[type="range"] {
