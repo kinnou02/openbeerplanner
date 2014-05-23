@@ -86,7 +86,7 @@
 										Adresse: {{ item.house_number }} {{item.street}}.
 										</span>
 									{% endif %}
-
+								</div>
 								{% if item.is_happy_hours %}
 								<div class="center fdr happyhours">
 								<p>
@@ -95,7 +95,9 @@
 								</div>
 								{% endif %}
 							
-							<div class="center fdr map"><a href="/map/{{item.id}}" class="gotomap"></a></div>
+							<div class="center fdr map"><a href="/map/{{item.id}}" class="gotomap">
+								</a>
+							</div>
 							<div class="center fdr plan">
 								{% for mode in item.journey.modes %}
 								{% if loop.index < 4 %}
