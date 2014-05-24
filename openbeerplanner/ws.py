@@ -54,7 +54,8 @@ class Journey(object):
                 if 'mode' in m:
                     self.modes.append(m['mode'])
                 if 'geojson' in m:
-                    self.geojson += m['geojson']['coordinates']
+                    self.geojson.append(m['geojson']['coordinates'])
+                    logging.debug(self.geojson)
         else:
             logging.debug(resp.json())
 
