@@ -95,21 +95,12 @@
 
                chemin.push(geojson[i].reverse())
             }
-             // choisir un couleur de tracé aléatoirement
-            var color = new Array ('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F');             
-            function ChoixCouleur ()
-            {
-            a = Math.floor(Math.random()*color.length );
-            b = Math.floor(Math.random()*color.length );
-            c = Math.floor(Math.random()*color.length );
-            d = Math.floor(Math.random()*color.length );
-            e = Math.floor(Math.random()*color.length );
-            f = Math.floor(Math.random()*color.length );
-                return '#'+color[a]+color[b]+color[c]+color[d]+color[e]+color[f];
-            }
-            
+             // choisir un couleur au hasard
+             var couleur = ['red', 'blue', 'orange', 'chartreuse','hotpink','tomato','aqua','yellow','purple','navy','olive','midnightblue']
+             choix = Math.floor((Math.random() * couleur.length)); 
+             
              //dessiner le tout
-             var le_chemin = L.polyline(chemin, {color: ChoixCouleur()}).addTo(map);      
+             var le_chemin = L.polyline(chemin, {color: couleur[choix]}).addTo(map);      
             }
     
   </script>
