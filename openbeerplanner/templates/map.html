@@ -44,14 +44,11 @@
 
   
       <script>
-	  var attr_osm = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors'  
+	  var attr_osm = "Merci aux contributeurs <a href='http://openstreetmap.org/'>OpenStreetMap</a> sans qui cette carte n'existerait pas." 
       var osm = new L.TileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {opacity: 0.7, attribution: attr_osm});
       var map = new L.Map('map').addLayer(osm).setView(new L.LatLng(48.84702,2.37705), 18);    
-      var baseMaps = { "Fond de carte OSM": osm };
-      var overlayMaps = {}; // ce truc ne sert à rien ...
-      L.control.layers(baseMaps, overlayMaps).addTo(map);
           
-    /*L.marker([48.84702,2.37705]).addTo(map);*/
+        /*L.marker([48.84702,2.37705]).addTo(map);*/
     
         // ajout du marqueur Hector Malot  
         var pos_od = new L.LatLng(48.84702,2.37705);
