@@ -91,7 +91,13 @@ def counters(amenities):
 
 def filter(amenities):
     random.shuffle(amenities)
-    return amenities[0:10]
+    short_list = []
+    for amenity in amenities :
+        #TODO : checker tout un tas de choses (horaires ouverture, journeys duration, etc)
+        short_list.append(amenity)
+        if len(short_list) >=10 :
+            break
+    return short_list    
 
 def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
     anemities = []
