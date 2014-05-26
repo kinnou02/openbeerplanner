@@ -83,7 +83,6 @@ def journeys(self, from_, to):
     run a journeys on navitia
     """
 
-
 def counters(amenities):
     res = defaultdict(int)
     for item in amenities:
