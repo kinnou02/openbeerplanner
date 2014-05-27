@@ -13,6 +13,8 @@ URL_OVERPASS = 'http://www.overpass-api.de/api/interpreter'
 
 KM_TO_DEG = 0.0089982311916
 
+donut = (["GrandCercle", 600], ["PetitCercle", 400]) # TODO : tenir compte des choix user en modifiant distances
+
 class Coord(object):
     """
     >>> c = Coord(48.8468041, 2.370162)
@@ -102,10 +104,36 @@ def filter(amenities):
 def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
     anemities = []
     radius = where.radius()
-    param = '[out:json][timeout:25];('
-    for anemity_type in anemity_types:
-        param += 'node["amenity"="{anemity_type}"]{bounds};'.format(anemity_type=anemity_type, bounds=radius)
-    param += ');out body;'
+    param = """ <osm-script output="json"> """
+    for cercle in donut :
+        param += """
+        <query type="node">
+        <id-query ref="1376730447" type="node"/>
+        </query>
+        """
+        param += '<union into="' +cercle[0] + '">'
+        for amenity in anemity_types :
+            param += """
+            <query type="node">
+            <around radius='"""+str(cercle[1])+"""'/>
+            <has-kv k="amenity" v='"""+amenity +"""'/>
+            </query>
+            """
+        param += '</union>'
+
+    param += """
+      <difference into="_">
+        <query into="_" type="node">
+          <item set="GrandCercle"/>
+        </query>
+        <query into="_" type="node">
+          <item set="PetitCercle"/>
+        </query>
+      </difference>
+      <print/>
+    </osm-script>
+
+    """
 
     resp = requests.get(URL_OVERPASS, params={'data': param})
     logging.debug('call: %s', resp.url)
