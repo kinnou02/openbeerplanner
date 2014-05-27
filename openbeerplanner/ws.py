@@ -77,18 +77,22 @@ def journeys(self, from_, to):
     """
 
 def counters(amenities):
-    #TODO : ça marche po, le total ne match pas les data
+    #TODO : marche po, le total ne match pas les data
     res = defaultdict(int)
     for item in amenities:
         res[item.type] += 1
     return res
 
+def check_amenity(my_amenity):
+    #TODO : checker tout un tas de choses (horaires ouverture, journeys duration, etc)
+    return True
+
 def filter(amenities):
     random.shuffle(amenities)
     short_list = []
     for amenity in amenities :
-        #TODO : checker tout un tas de choses (horaires ouverture, journeys duration, etc)
-        short_list.append(amenity)
+        if check_amenity(amenity):
+        	short_list.append(amenity)
         if len(short_list) >=10 :
             break
     return short_list    
