@@ -11,9 +11,10 @@ URL_NAVITIA = 'https://api.navitia.io/v1/'
 
 URL_OVERPASS = 'http://www.overpass-api.de/api/interpreter'
 
-KM_TO_DEG = 0.0089982311916
-
-donut = (["GrandCercle", 600], ["PetitCercle", 400]) # TODO : tenir compte des choix user en modifiant distances
+# TODO : tenir compte des choix user en modifiant le donut choixi
+donut = (["GrandCercle", 600], ["PetitCercle", 400]) 
+#donut = (["GrandCercle", 400], ["PetitCercle", 200]) 
+#donut = (["GrandCercle", 200], ["PetitCercle", 0]) 
 
 class Coord(object):
     """
@@ -27,16 +28,6 @@ class Coord(object):
 
     def __str__(self):
         return '{lon};{lat}'.format(lon=self.lon, lat=self.lat)
-
-    def radius(self, distance=1):
-        """
-        >>> c = Coord(48.84680, 2.37628)
-        >>> c.radius()
-        (48.837801768808404, 2.3672817688084, 48.8557982311916, 2.3852782311916)
-        """
-        #disabled for heroku
-        #return geom.Point(self.lon, self.lat).buffer(distance * KM_TO_DEG).bounds
-        return (48.837801768808404, 2.3672817688084, 48.8557982311916, 2.3852782311916)
 
 class Journey(object):
     def __init__(self):
@@ -86,6 +77,7 @@ def journeys(self, from_, to):
     """
 
 def counters(amenities):
+    #TODO : ça marche po, le total ne match pas les data
     res = defaultdict(int)
     for item in amenities:
         res[item.type] += 1
@@ -101,9 +93,8 @@ def filter(amenities):
             break
     return short_list    
 
-def get_amenities(where, anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
+def get_amenities(anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
     anemities = []
-    radius = where.radius()
     param = """ <osm-script output="json"> """
     for cercle in donut :
         param += """
