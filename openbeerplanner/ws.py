@@ -77,7 +77,6 @@ def journeys(self, from_, to):
     """
 
 def counters(amenities):
-    #TODO : marche po, le total ne match pas les data
     res = defaultdict(int)
     for item in amenities:
         res[item.type] += 1
@@ -100,35 +99,36 @@ def filter(amenities):
 def get_amenities(anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
     anemities = []
     param = """ <osm-script output="json"> """
-    for cercle in donut :
-        param += """
+    for atype in anemity_types :
+        for cercle in donut :
+            param += """
         <query type="node">
         <id-query ref="1376730447" type="node"/>
         </query>
         """
-        param += '<union into="' +cercle[0] + '">'
-        for amenity in anemity_types :
+
             param += """
-            <query type="node">
+            <query type="node" into='"""+cercle[0] +"""'>
             <around radius='"""+str(cercle[1])+"""'/>
-            <has-kv k="amenity" v='"""+amenity +"""'/>
+            <has-kv k="amenity" v='"""+atype +"""'/>
             </query>
             """
-        param += '</union>'
 
-    param += """
-      <difference into="_">
-        <query into="_" type="node">
-          <item set="GrandCercle"/>
-        </query>
-        <query into="_" type="node">
-          <item set="PetitCercle"/>
-        </query>
-      </difference>
-      <print/>
-    </osm-script>
 
-    """
+        param += """
+          <difference into="_">
+            <query into="_" type="node">
+              <item set="GrandCercle"/>
+            </query>
+            <query into="_" type="node">
+              <item set="PetitCercle"/>
+            </query>
+          </difference>
+          <print/>
+
+
+            """
+    param += ' </osm-script>'
 
     resp = requests.get(URL_OVERPASS, params={'data': param})
     logging.debug('call: %s', resp.url)
