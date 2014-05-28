@@ -12,9 +12,9 @@ URL_NAVITIA = 'https://api.navitia.io/v1/'
 URL_OVERPASS = 'http://www.overpass-api.de/api/interpreter'
 
 # TODO : tenir compte des choix user en modifiant le donut choixi
-donut = (["GrandCercle", 600], ["PetitCercle", 400]) 
-#donut = (["GrandCercle", 400], ["PetitCercle", 200]) 
-#donut = (["GrandCercle", 200], ["PetitCercle", 0]) 
+donut = (["GrandCercle", 1300], ["PetitCercle", 750]) 
+#donut = (["GrandCercle", 750], ["PetitCercle", 400]) 
+#donut = (["GrandCercle", 400], ["PetitCercle", 0]) 
 
 class Coord(object):
     """
