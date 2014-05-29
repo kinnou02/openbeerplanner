@@ -65,13 +65,7 @@
 		var myicon = L.icon({iconUrl: '../static/img/labas.png'});
         var marker = L.marker(pos, {icon: myicon}).bindPopup(content);
         marker.addTo(map);
-        
-        //centrer la carte pour que les deux marqueurs soient sur la carte  
-        map.fitBounds([
-    	[pos],
-    	[pos_od]
-		]);
-        
+               
         //localiser l'utilisateur 
         map.locate({setView: true, follow: true})
                 .on('locationfound', function(e){
@@ -102,6 +96,13 @@
              //dessiner le tout
              var le_chemin = L.polyline(chemin, {color: couleur[choix]}).addTo(map);      
             }
+          
+         //centrer la carte pour que les deux marqueurs soient sur la carte  
+        map.fitBounds([
+    	[pos],
+    	[pos_od],
+        le_chemin.getBounds()    
+		]);
     
   </script>
 

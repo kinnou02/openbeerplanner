@@ -11,7 +11,7 @@ URL_NAVITIA = 'https://api.navitia.io/v1/'
 
 URL_OVERPASS = 'http://www.overpass-api.de/api/interpreter'
 
-# TODO : tenir compte des choix user en modifiant le donut choixi
+# TODO : tenir compte des choix user en modifiant le donut choisi
 donut = (["GrandCercle", 1300], ["PetitCercle", 750]) 
 #donut = (["GrandCercle", 750], ["PetitCercle", 400]) 
 #donut = (["GrandCercle", 400], ["PetitCercle", 0]) 
