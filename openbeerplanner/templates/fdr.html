@@ -69,19 +69,7 @@
 								{% endif %}
 								{% if item.cuisine %}
 								<p>
-									Type de cuisine: 
-                                    {%if item.cuisine == "spanish" %} espagnole.
-                                    {%elif item.cuisine == "italian" %} italienne.
-                                    {%elif item.cuisine == "french" %} du coin.
-                                    {%elif item.cuisine == "regional" %} du coin.
-                                    {%elif item.cuisine == "vietnamese" %} du Vietman.
-                                    {%elif item.cuisine == "japanese" %} du Japon !!
-                                    {%elif item.cuisine == "chinese" %} chinoise !!
-                                    {%elif item.cuisine == "pizza" %} mal bouffe italienne
-                                    {%elif item.cuisine == "couscous" %} couscous.
-                                    {%elif item.cuisine == "thai" %} thai.
-                                    {%elif item.cuisine == "senegalese" %} sénégalaise.
-                                    {%else%} pas d'ici en tout cas{% endif %}
+									Type de cuisine : {{ item.cuisine }}
 								</p>
 								{% endif %}
 							</div>

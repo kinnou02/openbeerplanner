@@ -160,6 +160,17 @@ def get_amenity (id):
     
 def build_amenity(elem, mon_tag ) :
         #logging.debug(elem)
+        traduction = { #TODO : travailler les soucis d'encodage !
+            "regional": "regionale",
+            "japanese": "japonaise",
+            "italian": "italienne",
+            "french" : "francaise",
+            "senegalese" : "senegalaise",
+            "asian" : "asiatique",
+            "korean" : "coreenne",
+            "indian" : "indienne",
+            "argentinian" : "argentine"
+        }
         if elem.has_key(mon_tag) and elem[mon_tag].has_key('name') and elem[mon_tag].has_key('amenity'):
             anemity = Anemity(elem[mon_tag]['name'], elem['id'])
             anemity.coord = Coord(elem['lon'], elem['lat'])
@@ -169,7 +180,10 @@ def build_amenity(elem, mon_tag ) :
                 anemity.description = elem[mon_tag]['description']
 
             if elem[mon_tag].has_key('cuisine'):
-                anemity.cuisine = elem[mon_tag]['cuisine']
+                if elem[mon_tag]['cuisine'] in traduction :
+                	anemity.cuisine = traduction[elem[mon_tag]['cuisine']]
+                else :
+                    anemity.cuisine = elem[mon_tag]['cuisine']
 
             if elem[mon_tag].has_key('addr:housenumber'):
                 anemity.house_number = elem[mon_tag]['addr:housenumber']
