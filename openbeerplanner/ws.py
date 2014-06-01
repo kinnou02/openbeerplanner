@@ -137,14 +137,14 @@ def get_amenities(anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food'
         if truc :
             anemities.append(truc)
             #if truc.happy_hours :
-             #   logging.debug(check_happy_hours(truc)) 
+             #   logging.debug(check_happy_hours(truc))
     return anemities
 
-def check_happy_hours(chaine): 
+def check_happy_hours(chaine):
     definition = OpeningHours(chaine)
     return definition.is_open("fr", "19:00") #ici, je fixe en dur la valeur de comparaison
 
-def finish_happy_hours(chaine): 
+def finish_happy_hours(chaine):
     definition = OpeningHours(chaine)
     return definition.minutes_to_closing("fr", "19:00") #ici, je fixe en dur la valeur de comparaison
 
@@ -152,54 +152,55 @@ def get_amenity (id):
     api = OsmApi()
     dico = api.NodeGet(id)
     return build_amenity(dico, 'tag')
-    
+
 def build_amenity(elem, mon_tag ) :
-        #logging.debug(elem)
-        traduction = { #TODO : travailler les soucis d'encodage !
-            "regional": "regionale",
-            "japanese": "japonaise",
-            "italian": "italienne",
-            "french" : "francaise",
-            "senegalese" : "senegalaise",
-            "asian" : "asiatique",
-            "korean" : "coreenne",
-            "indian" : "indienne",
-            "argentinian" : "argentine"
-        }
-        if elem.has_key(mon_tag) and elem[mon_tag].has_key('name') and elem[mon_tag].has_key('amenity'):
-            anemity = Anemity(elem[mon_tag]['name'], elem['id'])
-            anemity.coord = Coord(elem['lon'], elem['lat'])
-            anemity.type = elem[mon_tag]['amenity']
+    #logging.debug(elem)
+    traduction = { #TODO : travailler les soucis d'encodage !
+        "regional": "regionale",
+        "japanese": "japonaise",
+        "italian": "italienne",
+        "french" : "francaise",
+        "senegalese" : "senegalaise",
+        "asian" : "asiatique",
+        "korean" : "coreenne",
+        "indian" : "indienne",
+        "argentinian" : "argentine"
+    }
+    if elem.has_key(mon_tag) and elem[mon_tag].has_key('name')\
+            and elem[mon_tag].has_key('amenity'):
+        anemity = Anemity(elem[mon_tag]['name'], elem['id'])
+        anemity.coord = Coord(elem['lon'], elem['lat'])
+        anemity.type = elem[mon_tag]['amenity']
 
-            if elem[mon_tag].has_key('description'):
-                anemity.description = elem[mon_tag]['description']
+        if elem[mon_tag].has_key('description'):
+            anemity.description = elem[mon_tag]['description']
 
-            if elem[mon_tag].has_key('cuisine'):
-                if elem[mon_tag]['cuisine'] in traduction :
-                	anemity.cuisine = traduction[elem[mon_tag]['cuisine']]
-                else :
-                    anemity.cuisine = elem[mon_tag]['cuisine']
+        if elem[mon_tag].has_key('cuisine'):
+            if elem[mon_tag]['cuisine'] in traduction :
+                anemity.cuisine = traduction[elem[mon_tag]['cuisine']]
+            else :
+                anemity.cuisine = elem[mon_tag]['cuisine']
 
-            if elem[mon_tag].has_key('addr:housenumber'):
-                anemity.house_number = elem[mon_tag]['addr:housenumber']
+        if elem[mon_tag].has_key('addr:housenumber'):
+            anemity.house_number = elem[mon_tag]['addr:housenumber']
 
-            if elem[mon_tag].has_key('addr:street'):
-                anemity.street = elem[mon_tag]['addr:street']
-            if elem[mon_tag].has_key('contact:phone'):
-                anemity.phone = elem[mon_tag]['contact:phone']
+        if elem[mon_tag].has_key('addr:street'):
+            anemity.street = elem[mon_tag]['addr:street']
+        if elem[mon_tag].has_key('contact:phone'):
+            anemity.phone = elem[mon_tag]['contact:phone']
 
-            if elem[mon_tag].has_key('opening_hours'):
-                anemity.opening_hours = elem[mon_tag]['opening_hours']
-                
-            if elem[mon_tag].has_key('happy_hours'):
-                anemity.happy_hours = elem[mon_tag]['happy_hours']
-                anemity.is_happy_hours = check_happy_hours(anemity.happy_hours)
-                anemity.end_happy_hours = finish_happy_hours(anemity.happy_hours)
-                
-            if elem[mon_tag].has_key('brewery'):
-                anemity.brewery = elem[mon_tag]['brewery'].split(';')
-                                    
-            #logging.debug(anemity.happy_hours)
-            return anemity
-        else :
-            return None
+        if elem[mon_tag].has_key('opening_hours'):
+            anemity.opening_hours = elem[mon_tag]['opening_hours']
+
+        if elem[mon_tag].has_key('happy_hours'):
+            anemity.happy_hours = elem[mon_tag]['happy_hours']
+            anemity.is_happy_hours = check_happy_hours(anemity.happy_hours)
+            anemity.end_happy_hours = finish_happy_hours(anemity.happy_hours)
+
+        if elem[mon_tag].has_key('brewery'):
+            anemity.brewery = elem[mon_tag]['brewery'].split(';')
+
+        #logging.debug(anemity.happy_hours)
+        return anemity
+    else :
+        return None
