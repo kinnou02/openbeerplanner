@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_heroku import Heroku
 from os import environ
 import logging
@@ -19,7 +19,17 @@ def root():
 
 @app.route('/list')
 def list():
-    amenities = ws.get_amenities()
+    if 'time' in request.args and request.args['time'].isdigit():
+        duration = int(request.args['time'])
+    else:
+        duration = 120
+    if 'humor' in request.args and request.args['time'].isdigit():
+        mood = int(request.args['humor'])
+    else:
+        mood = 2
+
+    logging.debug({"duration": duration, "mood": mood})
+    amenities = ws.get_amenities(mood=mood)
     counters = ws.counters(amenities)
     return render_template('list.html', counters=counters)
 

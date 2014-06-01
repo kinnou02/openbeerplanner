@@ -11,10 +11,9 @@ URL_NAVITIA = 'https://api.navitia.io/v1/'
 
 URL_OVERPASS = 'http://www.overpass-api.de/api/interpreter'
 
-# TODO : tenir compte des choix user en modifiant le donut choisi
-donut = (["GrandCercle", 1300], ["PetitCercle", 750]) 
-#donut = (["GrandCercle", 750], ["PetitCercle", 400]) 
-#donut = (["GrandCercle", 400], ["PetitCercle", 0]) 
+donuts = [(["GrandCercle", 400], ["PetitCercle", 0]),
+          (["GrandCercle", 750], ["PetitCercle", 400]),
+          (["GrandCercle", 1300], ["PetitCercle", 750])]
 
 class Coord(object):
     """
@@ -91,28 +90,24 @@ def filter(amenities):
     short_list = []
     for amenity in amenities :
         if check_amenity(amenity):
-        	short_list.append(amenity)
+            short_list.append(amenity)
         if len(short_list) >=10 :
             break
-    return short_list    
+    return short_list
 
-def get_amenities(anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food']):
+def get_amenities(anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food'], mood=2):
     anemities = []
     param = """ <osm-script output="json"> """
     for atype in anemity_types :
-        for cercle in donut :
-            param += """
-        <query type="node">
+        for cercle in donuts[mood-1]:
+            param += """<query type="node">
         <id-query ref="1376730447" type="node"/>
-        </query>
-        """
+        </query>"""
 
-            param += """
-            <query type="node" into='"""+cercle[0] +"""'>
+            param += """<query type="node" into='"""+cercle[0] +"""'>
             <around radius='"""+str(cercle[1])+"""'/>
             <has-kv k="amenity" v='"""+atype +"""'/>
-            </query>
-            """
+            </query>"""
 
 
         param += """
