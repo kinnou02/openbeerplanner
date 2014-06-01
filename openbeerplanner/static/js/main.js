@@ -5,6 +5,9 @@ $(document).ready(function() {
     pause: true,
     interval: 0,
   });
+
+    document.getElementById("rangePrimaryOutput").value=120;
+    document.getElementById("rangeSuccessOutput").value=2;
 });
 
 
@@ -18,7 +21,6 @@ function setURL()
 
 function setTime(){
     value = document.getElementById("rangePrimary").value;
-    
     if (value == "1")
     {
         result = 60;
@@ -42,8 +44,8 @@ function setTime(){
     today=new Date();
     today.setTime(today.getTime()+result*60*1000);
     dateheure = today.getHours() + ":" + today.getMinutes();
-  document.getElementById("time").innerHTML=dateheure;
-
+    document.getElementById("time").innerHTML=dateheure;
+    document.getElementById("rangePrimaryOutput").value=result;
 }
 
 function hourgetter() {
@@ -71,9 +73,8 @@ function hourgetter() {
         result = "3h00";
     }
     document.getElementById("hour").innerHTML=result;
-    document.getElementById("rangePrimaryOutput").value=value;
-    setURL();
     setTime();
+    setURL();
 }
 
 function shoesgetter() {
