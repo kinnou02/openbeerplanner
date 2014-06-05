@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+# 
 import requests
 import logging
 from collections import defaultdict
@@ -126,7 +129,7 @@ def get_amenities(anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food'
     param += ' </osm-script>'
 
     resp = requests.get(URL_OVERPASS, params={'data': param})
-    logging.debug('call: %s', resp.url)
+    #logging.debug('call: %s', resp.url)
     if resp.status_code != 200:
         logging.error('response KO: %s', resp.status_code)
         logging.error('response KO: %s', resp.json())
@@ -155,16 +158,16 @@ def get_amenity (id):
 
 def build_amenity(elem, mon_tag ) :
     #logging.debug(elem)
-    traduction = { #TODO : travailler les soucis d'encodage !
-        "regional": "regionale",
-        "japanese": "japonaise",
-        "italian": "italienne",
-        "french" : "francaise",
-        "senegalese" : "senegalaise",
-        "asian" : "asiatique",
-        "korean" : "coreenne",
-        "indian" : "indienne",
-        "argentinian" : "argentine"
+    traduction = { 
+        "regional": u"régionale",
+        "japanese": u"japonaise",
+        "italian": u"italienne",
+        "french" : u"française",
+        "senegalese" : u"sénégalaise",
+        "asian" : u"asiatique",
+        "korean" : u"coréenne",
+        "indian" : u"indienne",
+        "argentinian" : u"argentine"
     }
     if elem.has_key(mon_tag) and elem[mon_tag].has_key('name')\
             and elem[mon_tag].has_key('amenity'):

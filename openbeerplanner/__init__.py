@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+# 
 from flask import Flask, request
 from flask_heroku import Heroku
 from os import environ
