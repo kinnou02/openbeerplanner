@@ -167,7 +167,9 @@ def build_amenity(elem, mon_tag ) :
         "asian" : u"asiatique",
         "korean" : u"coréenne",
         "indian" : u"indienne",
-        "argentinian" : u"argentine"
+        "argentinian" : u"argentine",
+        "chinese" : u"chinoise",
+        "spanish" : u"espagnole"
     }
     if elem.has_key(mon_tag) and elem[mon_tag].has_key('name')\
             and elem[mon_tag].has_key('amenity'):
