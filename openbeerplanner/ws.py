@@ -19,6 +19,8 @@ API_key = "7b9c9e1a-0644-438b-8705-91bd86f0fb13"
 
 URL_OVERPASS = 'http://www.overpass-api.de/api/interpreter'
 
+bouchon = False #option de bouchonage pour les horaires d'ouvertures en cas de démo à une heure pourrie
+
 donuts = [(["GrandCercle", 400], ["PetitCercle", 0]),
           (["GrandCercle", 750], ["PetitCercle", 400]),
           (["GrandCercle", 1300], ["PetitCercle", 750])]
@@ -40,21 +42,19 @@ class Journey(object):
     def __init__(self):
         self.modes = []
         self.duration = None
-        self.arrivaldatetime = None
+        self.arrivaldatetime_OSM = None
         self.geojson = []
 
     def build_journey(self, frm, to):
         resp = requests.get(URL_NAVITIA + 'journeys', params={'from': frm, 'to': to} , headers={'Authorization': API_key})
+        #TODO : je crois qu'il faut passer une date aussi ... y a du 13h37 dans l'air là !
         if resp.status_code == 200 and 'error' not in resp.json():
             journeys = resp.json()
-            #logging.debug(journeys)
             self.duration = journeys['journeys'][0]['duration']/60
-            self.arrivaldatetime = journeys['journeys'][0]['arrival_date_time'] #TODO : stocker au format OSM (opening hours et happy hours) et date (pour le countdown) 
-            #date = "20140618T133700"
-            #print date
-            date_object = datetime.datetime.strptime(self.arrivaldatetime, '%Y%m%dT%H%M%S')
-            logging.debug(calendar.day_name[calendar.weekday(date_object.year, date_object.month, date_object.day)][0:2])
-            logging.debug("%d:%d" % (date_object.hour,date_object.minute))
+            arrivaldatetime = journeys['journeys'][0]['arrival_date_time']
+            date_object = datetime.datetime.strptime(arrivaldatetime, '%Y%m%dT%H%M%S')
+            self.arrivaldatetime_OSM = (calendar.day_name[calendar.weekday(date_object.year, date_object.month, date_object.day)][0:2] ,"%d:%d" % (date_object.hour,date_object.minute) )
+            #logging.debug(self.arrivaldatetime_OSM)
             for m in journeys['journeys'][0]['sections']:
                 if 'display_informations' in m:
                     self.modes.append(m['display_informations']['commercial_mode'])
@@ -62,7 +62,6 @@ class Journey(object):
                     self.modes.append(m['mode'])
                 if 'geojson' in m:
                     self.geojson.append(m['geojson']['coordinates'])
-                    #logging.debug(self.geojson)
         else:
             logging.debug(resp.json())
 
@@ -97,6 +96,13 @@ def counters(amenities):
     return res
 
 def check_amenity(my_amenity):
+    my_amenity.journey.build_journey(Coord(lat=48.84680, lon=2.37628), my_amenity.coord)
+  
+    #remplissage des infos sur les happy hours
+    if my_amenity.happy_hours :
+        my_amenity.is_happy_hours = check_happy_hours(my_amenity.happy_hours, my_amenity.journey.arrivaldatetime_OSM )
+        my_amenity.end_happy_hours = finish_happy_hours(my_amenity.happy_hours, my_amenity.journey.arrivaldatetime_OSM)
+                           
     #TODO : checker tout un tas de choses (horaires ouverture, journeys duration, etc)
     return True
 
@@ -155,13 +161,18 @@ def get_amenities(anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food'
              #   logging.debug(check_happy_hours(truc))
     return anemities
 
-def check_happy_hours(chaine):
+def check_happy_hours(chaine, jour_heure):
     definition = OpeningHours(chaine)
-    return definition.is_open("fr", "19:00") #ici, je fixe en dur la valeur de comparaison
+    if bouchon :
+    	return definition.is_open("fr", "19:00")
+    return definition.is_open(jour_heure[0], jour_heure[1])
+    
 
-def finish_happy_hours(chaine):
+def finish_happy_hours(chaine, jour_heure):
     definition = OpeningHours(chaine)
-    return definition.minutes_to_closing("fr", "19:00") #ici, je fixe en dur la valeur de comparaison
+    if bouchon :
+    	return definition.minutes_to_closing("fr", "19:00") 
+    return definition.minutes_to_closing(jour_heure[0], jour_heure[1])
 
 def get_amenity (id):
     api = OsmApi()
@@ -240,8 +251,6 @@ def build_amenity(elem, mon_tag ) :
 
         if elem[mon_tag].has_key('happy_hours'):
             anemity.happy_hours = elem[mon_tag]['happy_hours']
-            anemity.is_happy_hours = check_happy_hours(anemity.happy_hours)
-            anemity.end_happy_hours = finish_happy_hours(anemity.happy_hours)
 
         if elem[mon_tag].has_key('brewery'):
             anemity.brewery = elem[mon_tag]['brewery'].split(';')

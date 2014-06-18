@@ -41,9 +41,6 @@ def list():
 def fdr(type):
     amenities = ws.get_amenities(anemity_types=[type])
     amenities = ws.filter(amenities)
-    for amenity in amenities:
-        amenity.journey.build_journey(ws.Coord(lat=48.84680, lon=2.37628), amenity.coord)
-        #logging.debug(amenity.journey.modes)
     return render_template('fdr.html', amenities=amenities)
 
 
