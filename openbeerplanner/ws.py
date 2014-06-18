@@ -47,6 +47,7 @@ class Journey(object):
             journeys = resp.json()
             #logging.debug(journeys)
             self.duration = journeys['journeys'][0]['duration']/60
+            self.arrivaldatetime = journeys['journeys'][0]['arrival_date_time'] #TODO : stocker au format OSM (opening hours et happy hours) et date (pour le countdown) 
             for m in journeys['journeys'][0]['sections']:
                 if 'display_informations' in m:
                     self.modes.append(m['display_informations']['commercial_mode'])
