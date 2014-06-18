@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
-# 
+ 
 import requests
 import logging
 import datetime
@@ -10,6 +10,7 @@ import random
 from osmapi import OsmApi
 import json
 from opening_hours import OpeningHours
+
 __all__ = ['journeys']
 
 URL_NAVITIA = 'https://beta.navitia.io/v1/'
@@ -54,7 +55,6 @@ class Journey(object):
             arrivaldatetime = journeys['journeys'][0]['arrival_date_time']
             date_object = datetime.datetime.strptime(arrivaldatetime, '%Y%m%dT%H%M%S')
             self.arrivaldatetime_OSM = (calendar.day_name[calendar.weekday(date_object.year, date_object.month, date_object.day)][0:2] ,"%d:%d" % (date_object.hour,date_object.minute) )
-            #logging.debug(self.arrivaldatetime_OSM)
             for m in journeys['journeys'][0]['sections']:
                 if 'display_informations' in m:
                     self.modes.append(m['display_informations']['commercial_mode'])
@@ -97,13 +97,28 @@ def counters(amenities):
 
 def check_amenity(my_amenity):
     my_amenity.journey.build_journey(Coord(lat=48.84680, lon=2.37628), my_amenity.coord)
-  
-    #remplissage des infos sur les happy hours
+    if my_amenity.journey.duration > 10 : 
+   	#TODO : réflexion fonctionnelle à avoir ici ? durée variable en fonction des choix user ?
+        logging.debug(u"amenity éliminée : temps de trajet trop long")
+        return False    
+    if my_amenity.opening_hours :        
+        try :
+            encore_ouvert_longtemps = finish_happy_hours(my_amenity.opening_hours, my_amenity.journey.arrivaldatetime_OSM)
+        except :
+        	logging.error(u"Problème de format de données horaires OSM : %s" %my_amenity.opening_hours)
+        	return False
+        else :
+            if encore_ouvert_longtemps < 30:
+                logging.debug(u"amenity éliminée : pas ouvert sur le créneau horaire")
+                return False        
+    #TODO : autres choses à tester ??      
     if my_amenity.happy_hours :
-        my_amenity.is_happy_hours = check_happy_hours(my_amenity.happy_hours, my_amenity.journey.arrivaldatetime_OSM )
-        my_amenity.end_happy_hours = finish_happy_hours(my_amenity.happy_hours, my_amenity.journey.arrivaldatetime_OSM)
-                           
-    #TODO : checker tout un tas de choses (horaires ouverture, journeys duration, etc)
+        try :
+            my_amenity.is_happy_hours = check_happy_hours(my_amenity.happy_hours, my_amenity.journey.arrivaldatetime_OSM )
+            my_amenity.end_happy_hours = finish_happy_hours(my_amenity.happy_hours, my_amenity.journey.arrivaldatetime_OSM)                           
+        except :
+        	logging.error(u"Problème de format de données horaires OSM : %s" %my_amenity.happy_hours)            
+            
     return True
 
 def filter(amenities):
@@ -147,18 +162,16 @@ def get_amenities(anemity_types=['cafe', 'pub', 'bar', 'restaurant', 'fast_food'
     param += ' </osm-script>'
 
     resp = requests.get(URL_OVERPASS, params={'data': param})
-    #logging.debug('call: %s', resp.url)
+
     if resp.status_code != 200:
         logging.error('response KO: %s', resp.status_code)
         logging.error('response KO: %s', resp.json())
 
     for elem in resp.json()['elements']:
         truc = build_amenity(elem,'tags')
-        #logging.debug(truc)
+
         if truc :
             anemities.append(truc)
-            #if truc.happy_hours :
-             #   logging.debug(check_happy_hours(truc))
     return anemities
 
 def check_happy_hours(chaine, jour_heure):
@@ -255,7 +268,6 @@ def build_amenity(elem, mon_tag ) :
         if elem[mon_tag].has_key('brewery'):
             anemity.brewery = elem[mon_tag]['brewery'].split(';')
 
-        #logging.debug(anemity.happy_hours)
         return anemity
     else :
         return None
