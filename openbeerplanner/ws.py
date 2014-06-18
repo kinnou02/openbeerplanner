@@ -10,7 +10,10 @@ import json
 from opening_hours import OpeningHours
 __all__ = ['journeys']
 
-URL_NAVITIA = 'https://api.navitia.io/v1/'
+URL_NAVITIA = 'https://beta.navitia.io/v1/'
+#URL_NAVITIA = 'https://api.navitia.io/v1/'
+
+API_key = "7b9c9e1a-0644-438b-8705-91bd86f0fb13"
 
 URL_OVERPASS = 'http://www.overpass-api.de/api/interpreter'
 
@@ -35,10 +38,11 @@ class Journey(object):
     def __init__(self):
         self.modes = []
         self.duration = None
+        self.arrivaldatetime = None
         self.geojson = []
 
     def build_journey(self, frm, to):
-        resp = requests.get(URL_NAVITIA + 'journeys', params={'from': frm, 'to': to})
+        resp = requests.get(URL_NAVITIA + 'journeys', params={'from': frm, 'to': to} , headers={'Authorization': API_key})
         if resp.status_code == 200 and 'error' not in resp.json():
             journeys = resp.json()
             #logging.debug(journeys)
@@ -50,7 +54,7 @@ class Journey(object):
                     self.modes.append(m['mode'])
                 if 'geojson' in m:
                     self.geojson.append(m['geojson']['coordinates'])
-                    logging.debug(self.geojson)
+                    #logging.debug(self.geojson)
         else:
             logging.debug(resp.json())
 
