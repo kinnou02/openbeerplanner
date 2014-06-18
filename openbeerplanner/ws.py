@@ -3,6 +3,8 @@
 # 
 import requests
 import logging
+import datetime
+import calendar
 from collections import defaultdict
 import random
 from osmapi import OsmApi
@@ -48,6 +50,11 @@ class Journey(object):
             #logging.debug(journeys)
             self.duration = journeys['journeys'][0]['duration']/60
             self.arrivaldatetime = journeys['journeys'][0]['arrival_date_time'] #TODO : stocker au format OSM (opening hours et happy hours) et date (pour le countdown) 
+            #date = "20140618T133700"
+            #print date
+            date_object = datetime.datetime.strptime(self.arrivaldatetime, '%Y%m%dT%H%M%S')
+            logging.debug(calendar.day_name[calendar.weekday(date_object.year, date_object.month, date_object.day)][0:2])
+            logging.debug("%d:%d" % (date_object.hour,date_object.minute))
             for m in journeys['journeys'][0]['sections']:
                 if 'display_informations' in m:
                     self.modes.append(m['display_informations']['commercial_mode'])
