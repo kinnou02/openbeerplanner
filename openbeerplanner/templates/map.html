@@ -14,7 +14,7 @@
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet-src.js"></script>
     <script src="https://dl.dropboxusercontent.com/u/72446689/jquery.countdown.js"></script>
-    <script src="https://dl.dropboxusercontent.com/u/72446689/script.js"></script>
+    <!--<script src="https://dl.dropboxusercontent.com/u/72446689/script.js"></script>-->
 
   </head>
 
@@ -102,6 +102,49 @@
         le_chemin.getBounds()
         ]);
   </script>
+	  <script>
+	  $(function(){
+	// Attention les mois commencent à 0 !
+	var ts = new Date(2014, 10, 12,19,27);
+
+	
+		  
+	if((new Date()) > ts){
+		// Notice the *1000 at the end - time must be in milliseconds
+		ts = (new Date()).getTime() + 10*24*60*60*1000;
+
+	}
+		
+	$('#countdown').countdown({
+		timestamp	: ts,
+		callback	: function(days, hours, minutes, seconds){
+			var message = "";
+
+			message += hours + " heure" + ( hours==1 ? '':'s' ) + ", ";
+			message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " et ";
+			message += seconds + " seconde" + ( seconds==1 ? '':'s' );
+			
+			if ((hours == 0 ) && (minutes == 0) && (seconds == 0)) {
+				alert ('quitte de lieu de perdition ! paye et retourne bosser feignant !')
+				
+				//vibration
+				navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate; 
+				if (navigator.vibrate) {
+				   navigator.vibrate(1000);
+					console.log('vibration effectuée')
+				} else {
+				   console.log('vibration non supportée par le navigateur')
+				}
+			
+			};
+
+
+			//console.log(message)
+		}
+	});
+	
+});
+	  </script>
 
   </body>
 </html>
