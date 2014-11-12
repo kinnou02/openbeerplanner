@@ -103,14 +103,28 @@
         ]);
   </script>
 	  <script>
+		  //permission pour les notifications
+			window.addEventListener('load', function () {
+			  Notification.requestPermission(function (status) {
+				if (Notification.permission !== status) {
+				  Notification.permission = status;
+				}
+			  });
+			});
+
+		  //countdown
 	  $(function(){
 	// Attention les mois commencent à 0 !
-	var ts = new Date(2014, 10, 12,19,27);
-
+	//var ts = new Date(2014, 10, 12,19,34);
 	
-		  
+	/*bouchon pour tester le système de notif*/
+	var now = new Date();
+	var ts = new Date();
+	ts.setSeconds( now.getSeconds() + 65 ); 
+	
+	var notified_yet = false
+	
 	if((new Date()) > ts){
-		// Notice the *1000 at the end - time must be in milliseconds
 		ts = (new Date()).getTime() + 10*24*60*60*1000;
 
 	}
@@ -124,8 +138,9 @@
 			message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " et ";
 			message += seconds + " seconde" + ( seconds==1 ? '':'s' );
 			
-			if ((hours == 0 ) && (minutes == 0) && (seconds == 0)) {
-				alert ('quitte de lieu de perdition ! paye et retourne bosser feignant !')
+			if ((hours == 0 ) && (minutes == 0) && (seconds == 0) && notified_yet==false) {
+				notified_yet = true
+				msg='Quitte de lieu de perdition ! Retourne bosser feignant !'
 				
 				//vibration
 				navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate; 
@@ -135,11 +150,33 @@
 				} else {
 				   console.log('vibration non supportée par le navigateur')
 				}
-			
+
+				//notification
+				if (window.Notification && Notification.permission === "granted") {
+				  var n = new Notification(msg);
+				}
+
+				else if (window.Notification && Notification.permission !== "denied") {
+				  Notification.requestPermission(function (status) {
+					if (Notification.permission !== status) {
+					  Notification.permission = status;
+					}
+					if (status === "granted") {
+					  var n = new Notification(msg);
+					}
+					else {
+					  alert(msg);
+					}
+				  });
+				}
+				else {
+				  alert(msg);
+				}
+
 			};
 
 
-			//console.log(message)
+			console.log(message)
 		}
 	});
 	
