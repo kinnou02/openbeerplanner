@@ -74,7 +74,7 @@
                 })
                .on('locationerror', function(e){
                     console.log(e);
-                    alert("échec de localisation de l'utilisateur");
+                    console.log("échec de localisation de l'utilisateur");
                 });
 
         // tracer le chemin entre les points
@@ -140,7 +140,7 @@
 			
 			if ((hours == 0 ) && (minutes == 0) && (seconds == 0) && notified_yet==false) {
 				notified_yet = true
-				msg='Quitte de lieu de perdition ! Retourne bosser feignant !'
+				msg='Quitte ce lieu de perdition ! Retourne bosser feignant !'
 				
 				//vibration
 				navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate; 
