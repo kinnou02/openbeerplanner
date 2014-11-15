@@ -13,8 +13,7 @@ from opening_hours import OpeningHours
 
 __all__ = ['journeys']
 
-URL_NAVITIA = 'https://beta.navitia.io/v1/'
-#URL_NAVITIA = 'https://api.navitia.io/v1/'
+URL_NAVITIA = 'https://api.navitia.io/v1/'
 
 API_key = "7b9c9e1a-0644-438b-8705-91bd86f0fb13"
 
@@ -43,18 +42,28 @@ class Journey(object):
     def __init__(self):
         self.modes = []
         self.duration = None
-        self.arrivaldatetime_OSM = None
+        self.datetime_OSM = None
+        self.arrivalyear = None
+        self.arrivalday = None
+        self.arrivalmonth = None
+        self.arrivalhour = None
+        self.arrivalminute = None		
         self.geojson = []
 
     def build_journey(self, frm, to):
-        resp = requests.get(URL_NAVITIA + 'journeys', params={'from': frm, 'to': to} , headers={'Authorization': API_key})
-        #TODO : je crois qu'il faut passer une date aussi ... y a du 13h37 dans l'air là !
+        my_datetime = '20141115T193732' #TODO : doit être l'heure de reprise du travail, indiquée sur la page home
+        resp = requests.get(URL_NAVITIA + 'journeys', params={'from': frm, 'to': to, 'datetime': my_datetime, 'datetime_represents': 'arrival'} , headers={'Authorization': API_key})
         if resp.status_code == 200 and 'error' not in resp.json():
             journeys = resp.json()
             self.duration = journeys['journeys'][0]['duration']/60
-            arrivaldatetime = journeys['journeys'][0]['arrival_date_time']
-            date_object = datetime.datetime.strptime(arrivaldatetime, '%Y%m%dT%H%M%S')
-            self.arrivaldatetime_OSM = (calendar.day_name[calendar.weekday(date_object.year, date_object.month, date_object.day)][0:2] ,"%d:%d" % (date_object.hour,date_object.minute) )
+            departuredatetime = journeys['journeys'][0]['departure_date_time']
+            self.arrivalyear = departuredatetime[0:4]
+            self.arrivalmonth = departuredatetime[4:6]
+            self.arrivalday = departuredatetime[6:8]
+            self.arrivalhour = departuredatetime[9:11]
+            self.arrivalminute = departuredatetime[11:13]
+            date_object = datetime.datetime.strptime(departuredatetime, '%Y%m%dT%H%M%S')
+            self.datetime_OSM = (calendar.day_name[calendar.weekday(date_object.year, date_object.month, date_object.day)][0:2] ,"%d:%d" % (date_object.hour,date_object.minute) )
             for m in journeys['journeys'][0]['sections']:
                 if 'display_informations' in m:
                     self.modes.append(m['display_informations']['commercial_mode'])
@@ -103,7 +112,7 @@ def check_amenity(my_amenity):
         return False    
     if my_amenity.opening_hours :        
         try :
-            encore_ouvert_longtemps = finish_happy_hours(my_amenity.opening_hours, my_amenity.journey.arrivaldatetime_OSM)
+            encore_ouvert_longtemps = finish_happy_hours(my_amenity.opening_hours, my_amenity.journey.datetime_OSM)
         except :
         	logging.error(u"Problème de format de données horaires OSM : %s" %my_amenity.opening_hours)
         	return False
@@ -114,8 +123,8 @@ def check_amenity(my_amenity):
     #TODO : autres choses à tester ??      
     if my_amenity.happy_hours :
         try :
-            my_amenity.is_happy_hours = check_happy_hours(my_amenity.happy_hours, my_amenity.journey.arrivaldatetime_OSM )
-            my_amenity.end_happy_hours = finish_happy_hours(my_amenity.happy_hours, my_amenity.journey.arrivaldatetime_OSM)                           
+            my_amenity.is_happy_hours = check_happy_hours(my_amenity.happy_hours, my_amenity.journey.datetime_OSM )
+            my_amenity.end_happy_hours = finish_happy_hours(my_amenity.happy_hours, my_amenity.journey.datetime_OSM)                           
         except :
         	logging.error(u"Problème de format de données horaires OSM : %s" %my_amenity.happy_hours)            
             

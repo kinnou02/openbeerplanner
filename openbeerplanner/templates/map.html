@@ -14,7 +14,6 @@
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet-src.js"></script>
     <script src="https://dl.dropboxusercontent.com/u/72446689/jquery.countdown.js"></script>
-    <!--<script src="https://dl.dropboxusercontent.com/u/72446689/script.js"></script>-->
 
   </head>
 
@@ -47,8 +46,6 @@
       var attr_osm = "Merci aux contributeurs <a href='http://openstreetmap.org/'>OpenStreetMap</a> sans qui cette carte n'existerait pas."
       var osm = new L.TileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {opacity: 0.7, attribution: attr_osm});
       var map = new L.Map('map').addLayer(osm).setView(new L.LatLng(48.84702,2.37705), 18);
-
-        /*L.marker([48.84702,2.37705]).addTo(map);*/
 
         // ajout du marqueur Hector Malot
         var pos_od = new L.LatLng(48.84702,2.37705);
@@ -115,13 +112,15 @@
 		  //countdown
 	  $(function(){
 	// Attention les mois commencent à 0 !
-	//var ts = new Date(2014, 10, 12,19,34);
+	//var ts = new Date({{amenity.journey.arrivalyear}}, {{amenity.journey.arrivalmonth}} - 1, {{amenity.journey.arrivalday}},{{amenity.journey.arrivalhour}}+1,{{amenity.journey.arrivalminute}});
+
 	
 	/*bouchon pour tester le système de notif*/
 	var now = new Date();
 	var ts = new Date();
 	ts.setSeconds( now.getSeconds() + 65 ); 
 	
+	console.log(ts)	
 	var notified_yet = false
 	
 	if((new Date()) > ts){

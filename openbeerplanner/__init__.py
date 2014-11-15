@@ -49,6 +49,7 @@ def map(osmid):
     amenity = ws.get_amenity(osmid)
     #logging.debug(amenity)
     amenity.journey.build_journey(ws.Coord(lat=48.84680, lon=2.37628), amenity.coord)
+    logging.debug(amenity.journey.arrivalhour)	
     return render_template('map.html', amenity=amenity)
 
 
