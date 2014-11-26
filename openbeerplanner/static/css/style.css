@@ -5,142 +5,142 @@
 /* Put your CSS here */
 html, body {
     margin: 20px;
-	width: 640px;
-	height: 1136px;
-	font-family: Calibri, Arial, sans-serif;
+    width: 640px;
+    height: 1136px;
+    font-family: Calibri, Arial, sans-serif;
 }
 
  .container.resultat{
-	background: white url("../img/list_main.jpg") no-repeat;
-	width: 640px;
-	height: 800px;
+    background: white url("../img/list_main.jpg") no-repeat;
+    width: 640px;
+    height: 800px;
 }
 
 .btn-block{
-	width: 640px;
+    width: 640px;
 }
 
 .greyheader{
-	font-size: 24px;
-	font-style: bold;
+    font-size: 24px;
+    font-style: bold;
 }
 
  .row.shoes{
-	width: 640px;
-	margin-right: 0;
-	margin-left: 0;
+    width: 640px;
+    margin-right: 0;
+    margin-left: 0;
 }
 
  .row.groles{
-	background: white url("../img/shoes.png") no-repeat;
-	width: 640px;
-	height: 200px;
-	margin-right: 0;
-	margin-left: 0;
+    background: white url("../img/shoes.png") no-repeat;
+    width: 640px;
+    height: 200px;
+    margin-right: 0;
+    margin-left: 0;
 }
 
  .row.overwrite{
-	width: 640px;
-	padding: 0;
-	margin-right: 0;
-	margin-left: 0;
-	
+    width: 640px;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
+
 }
 .overwrite{
-	width: 640px;
-	padding: 0;
-	margin-right: 0;
-	margin-left: 0;
-	border:0;
+    width: 640px;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
+    border:0;
 }
 
 
  .container.home1{
-	background: white url("../img/home_1.png") no-repeat;
-	width: 640px;
-	height: 450px;
-	padding: 0;
+    background: white url("../img/home_1.png") no-repeat;
+    width: 640px;
+    height: 450px;
+    padding: 0;
 }
 
  .container.home_text{
-	width: 640px;
+    width: 640px;
 
 }
 
 .texter{
-	padding: 0;
-	font-size: 24px;
-	padding-left: 40%;
+    padding: 0;
+    font-size: 24px;
+    padding-left: 40%;
 }
 
 .texter2{
-	padding: 0;
-	font-size: 36px;
+    padding: 0;
+    font-size: 36px;
 }
 
  .container.home2{
-	background: white url("../img/home_2.png") no-repeat;
-	width: 640px;
-	height: 310px;
-	padding-top: 12%;
-	color: white;
-	font-size: 36px;
-	padding-left: 20%;
+    background: white url("../img/home_2.png") no-repeat;
+    width: 640px;
+    height: 310px;
+    padding-top: 12%;
+    color: white;
+    font-size: 36px;
+    padding-left: 20%;
 }
  .container.home3{
-	background: white url("../img/home_3.png") no-repeat;
-	width: 640px;
-	height: 175px;
-	padding-left: 20%;
-	display: inline-block;
-	padding-top: 12%;
-	color: white;
-	font-size: 36px;
+    background: white url("../img/home_3.png") no-repeat;
+    width: 640px;
+    height: 175px;
+    padding-left: 20%;
+    display: inline-block;
+    padding-top: 12%;
+    color: white;
+    font-size: 36px;
 }
 
 .home_button_label{
-	width: 640px;
-	height: 175px;
-	list-style-type: none;
-	margin-left: 40%;
-	padding-top: 75px;
-	color: white;
+    width: 640px;
+    height: 175px;
+    list-style-type: none;
+    margin-left: 40%;
+    padding-top: 75px;
+    color: white;
 }
 
 
 .shoes{
-	background: white url("../img/shoes.png") no-repeat;
-	width: 640px;
+    background: white url("../img/shoes.png") no-repeat;
+    width: 640px;
 }
 
 .map{
-	width: 640px;
-	height: 800px;
+    width: 640px;
+    height: 800px;
 }
 
 .list_list{
-	width: 60%;
-	padding:0;
-	list-style-type: none;
-	height: 200px;
-	margin-left: 40%;
-	padding-top: 5%;
-	color: white;
-	font-size: 30px;
+    width: 60%;
+    padding:0;
+    list-style-type: none;
+    height: 200px;
+    margin-left: 40%;
+    padding-top: 5%;
+    color: white;
+    font-size: 30px;
 }
 
 .list_list a{
-	color: white !important;
-	font-size: 80px;
+    color: white !important;
+    font-size: 80px;
 }
 
 .container {
-	padding: 0px;
-	margin: auto;
+    padding: 0px;
+    margin: auto;
 }
 
 .container.center {
-	padding: 0px;
+    padding: 0px;
 }
 
 
@@ -152,74 +152,75 @@ html, body {
 }
 
 .sizer {
-	width: 640px;
+    width: 640px;
 }
 
-.img { 
-	width: 30px;
+.img {
+    width: 30px;
 }
 
-.img2 { 
-	width: 80px;
+.img2 {
+    width: 80px;
 }
 
-.img3 { 
-	width: 100px;
-	height: 100px;
-	padding: 20px;
+.img3 {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
 }
 
 .backtohome {
-	float: left;
-	width: 60px;
-	height: 60px;
-	display: block;
+    float: left;
+    width: 60px;
+    height: 60px;
+    display: block;
 }
 .gotomap {
-	float: left;
-	width: 644px;
-	height: 144px;
-	display: block;
+    float: left;
+    width: 644px;
+    height: 144px;
+    display: block;
 }
 
 .reduced {
-	width: 30%;
-	float: left;
-	list-style: none;
-	font-size: 18px;
-	color: white;
+    width: 30%;
+    float: left;
+    list-style: none;
+    font-size: 18px;
+    color: white;
 }
 
 .reduced2{
-	width: 50%;
-	float: left;
-	list-style: none;
-	font-size: 24px;
-	color: white;
+    width: 50%;
+    float: left;
+    list-style: none;
+    font-size: 24px;
+    color: white;
 }
 
 .reduced3{
-	width: 50%;
-	float: right;
-	list-style: none;
-	font-size: 24px;
-	color: white;
+    width: 50%;
+    float: right;
+    list-style: none;
+    font-size: 24px;
+    color: white;
 
 }
 
-.center { 
-	margin: auto;
+.center {
+    margin: auto;
 }
 /* sliders*/
 
 .header {
-	background: white url("../img/headerlol.png") no-repeat;
-	height: 80px;
+    background: white url("../img/headerlol.png") no-repeat;
+    height: 80px;
 }
 
 .footer {
-	background: white url("../img/footer.jpg") no-repeat;
-	height: 80px;
+    color: white;
+    background-color: rgb(25, 25, 70);
+    height: 60px;
 }
 
 .range {
@@ -235,97 +236,97 @@ html, body {
 }
 
 .bar {
-	background: white url("../img/detail_bar.png") no-repeat;
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height:100px;
-	color: white;
-	margin: auto;
+    background: white url("../img/detail_bar.png") no-repeat;
+    width: 640px;
+    padding:0;
+    margin-left: 0;
+    list-style-type: none;
+    height:100px;
+    color: white;
+    margin: auto;
 }
 
 .pub {
-	background: white url("../img/detail_pub.png") no-repeat;
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height: 100px;
-	color: white;
-	margin: auto;
+    background: white url("../img/detail_pub.png") no-repeat;
+    width: 640px;
+    padding:0;
+    margin-left: 0;
+    list-style-type: none;
+    height: 100px;
+    color: white;
+    margin: auto;
 }
 
 .cafe {
-	background: white url("../img/detail_cafe.png") no-repeat;
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height: 100px;
-	color: white;
-	margin: auto;
+    background: white url("../img/detail_cafe.png") no-repeat;
+    width: 640px;
+    padding:0;
+    margin-left: 0;
+    list-style-type: none;
+    height: 100px;
+    color: white;
+    margin: auto;
 }
 
 .happyhourstext {
-	float: right;
-	padding-top: 5px;
-	font-size: 28px;
+    float: right;
+    padding-top: 5px;
+    font-size: 28px;
 }
 
 .happyhours {
-	background: white url("../img/happyhours.png") no-repeat;
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height: 100px;
-	color: white;
-	margin: auto;
+    background: white url("../img/happyhours.png") no-repeat;
+    width: 640px;
+    padding:0;
+    margin-left: 0;
+    list-style-type: none;
+    height: 100px;
+    color: white;
+    margin: auto;
 }
 
 .fast_food {
-	background: white url("../img/detail_fast_food.png") no-repeat;
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height: 100px;
-	color: white;
-	margin: auto;
+    background: white url("../img/detail_fast_food.png") no-repeat;
+    width: 640px;
+    padding:0;
+    margin-left: 0;
+    list-style-type: none;
+    height: 100px;
+    color: white;
+    margin: auto;
 }
 
 .restaurant {
-	background: white url("../img/detail_restaurant.png") no-repeat;
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height: 100px;
-	color: white;
-	margin: auto;
+    background: white url("../img/detail_restaurant.png") no-repeat;
+    width: 640px;
+    padding:0;
+    margin-left: 0;
+    list-style-type: none;
+    height: 100px;
+    color: white;
+    margin: auto;
 }
 
 .map {
-	background: white url("../img/gotomap.png") no-repeat;
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height: 144px;
-	color: white;
-	margin: auto;
-	display: inline-block;
+    background: white url("../img/gotomap.png") no-repeat;
+    width: 640px;
+    padding:0;
+    margin-left: 0;
+    list-style-type: none;
+    height: 144px;
+    color: white;
+    margin: auto;
+    display: inline-block;
 }
 .plan {
-	background: white url("../img/plan.png") no-repeat;
-	width: 640px;
-	padding:0;
-	margin-left: 0;
-	list-style-type: none;
-	height: 145px;
-	color: white;
-	margin: auto;
+    background: white url("../img/plan.png") no-repeat;
+    width: 640px;
+    padding:0;
+    margin-left: 0;
+    list-style-type: none;
+    height: 145px;
+    color: white;
+    margin: auto;
 }
 
 .range input[type="range"] {
@@ -364,7 +365,7 @@ html, body {
     -ms-appearance: none !important;
     -o-appearance: none !important;
     appearance: none !important;
-    
+
     width: 11px;
     height: 25px;
     color: rgb(255, 255, 255);
