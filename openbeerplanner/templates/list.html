@@ -4,28 +4,28 @@
    <head>
     <meta charset="utf-8">
     <title>New Page</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/style.css">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../static/js/main.js" type="text/javascript"></script>
+	<script src="../static/js/main.js" type="text/javascript"></script>
   </head>
-
+  
   <body>
     <header class="header">
-    <a class="backtohome" href="/"></a>
+	<a class="backtohome" href="/"></a>
     </header>
     <div class="container resultat">
       <ul class="list-group">
       <li class="list_list"><a href="/fdr/bar">{{ counters['bar']}}</a><br/>Propositions</li>
           <!-- les pubs ne sont pas adressés. C'est dommage !-->
       <li class="list_list"><a href="/fdr/restaurant">{{ counters['restaurant']}}</a><br/>Propositions</li>
-      <li class="list_list"><a href="/fdr/fast_food">{{ counters['fast_food']}}</a><br/>Propositions</li>
+	  <li class="list_list"><a href="/fdr/fast_food">{{ counters['fast_food']}}</a><br/>Propositions</li>
       <li class="list_list"><a href="/fdr/cafe">{{ counters['cafe']}}</a><br/>Propositions</li>
     </ul>
     </div>
-    {% include 'footer.html' %}
+    <footer class="footer"></footer>
   </body>
 
 </html>

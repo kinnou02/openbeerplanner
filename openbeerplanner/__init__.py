@@ -41,10 +41,6 @@ def map(osmid):
     amenity.journey.build_journey(ws.Coord(lat=48.84680, lon=2.37628), amenity.coord)
     return render_template('map.html', amenity=amenity)
 
-@app.route('/about')
-def about():
-    return render_template('about.html', title='A propos')
-
 
 @app.before_first_request
 def setup_logging():

@@ -3,15 +3,15 @@
 <html lang="fr">
    <head>
     <meta charset="utf-8">
-    <title>Hango</title>
+    <title>New Page</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="../static/js/main.js" type="text/javascript"></script>
+	<script src="../static/js/main.js" type="text/javascript"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
   </head>
-
+  
   <body>
     <header>
       <img src="https://builder.divshot.com/img/placeholder-100x100.gif">
@@ -21,123 +21,123 @@
     <div class='col-md-offset-2 col-md-8'>
       <div class="carousel slide" data-ride="carousel" id="quote-carousel">
         <!-- Bottom Carousel Indicators -->
-
+        
         <!-- Carousel Slides / Quotes -->
         <div class="carousel-inner">
-
-        {% for item in amenities %}
-        {% if loop.index == 1 %}
-            <div class="item active">
-        {% else %}
-            <div class="item">
-        {% endif %}<li><a href="/amenity/{{item.id}}"></a></li>
-                  <blockquote>
+		
+		{% for item in amenities %}
+		{% if loop.index == 1 %}
+			<div class="item active">
+		{% else %}
+			<div class="item">
+		{% endif %}<li><a href="/amenity/{{item.id}}"></a></li>
+				  <blockquote>
               <div class="row">
-                <hr>
-                <div class="center">
-                    <a data-slide="prev" href="#quote-carousel">PREV</a>
-                    Proposition {{loop.index}}/{{amenities|length}}
-                    <a data-slide="next" href="#quote-carousel">NEXT</a>
-                </div>
-                <hr>
-                    <div class="center">
-                        <!-- section piéton-->
-                        <img class="img" src="../static/img/pieton.jpg"/>
-                        <!-- séparateur aller-->
-                        <img class="img" src="../static/img/arrow-right.jpg"/>
-                        <!-- section TC-->
-                        <img class="img" src="../static/img/bus.jpg"/>
-                        <!-- séparateur aller-->
-                        <img class="img" src="../static/img/arrow-right.jpg"/>
-                        <!-- section piéton-->
-                        <img class="img" src="../static/img/pieton.jpg"/>
-                        <p>
-                            Aller - Durée: xx minutes
-                        </p>
-                    </div>
-                <hr>
-                    <div>
-                        <span><img class="img" src="../static/img/"/>{{ item.type }}: {{ item.name }}</span>
-                        <div class="center">
-                            {% if item.type == 'bar' or item.type == 'pub' %}
-                            <p>
-                                Type de bières
-                                <ul>
-                                    <li>bière A</li>
-                                    <li>bière B</li>
-                                    <li>bière C</li>
-                                </ul>
-                            </p>
-                            {% endif %}
-                            {% if item.type == 'fast_food' %}
-                            <p>
-                                Type de trucs pas bons
-                                <ul>
-                                    <li>frites sèches</li>
-                                    <li>coca tiède</li>
-                                    <li>cheeseburgers mous</li>
-                                </ul>
-                            </p>
-                            {% endif %}
-                            {% if item.type == 'restaurant' %}
-                            <p>
-                                Type de trucs pas bons
-                                <ul>
-                                    <li>entrée</li>
-                                    <li>plats</li>
-                                    <li>desserts</li>
-                                </ul>
-                            </p>
-                            {% endif %}
-                            {% if item.type == 'cafe' %}
-                            <p>
-                                Type de trucs pas bons
-                                <ul>
-                                    <li>chaud</li>
-                                    <li>froid</li>
-                                </ul>
-                            </p>
-                            {% endif %}
-                            <p>
-                                Horaires ouvertures: hhHmm à hhHmm
-                            </p>
-                            {% if item.type == 'bar' or item.type == 'pub' %}
-                            <p>
-                                Happy Hour: hhHmm à hhHmm
-                            </p>
-                            {% endif %}
-                        </div>
-                        <a href="map.html" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
-                    </div>
-                <hr>
-                    <div>
-                        <!-- section piéton-->
-                        <img class="img" src="../static/img/pieton.jpg"/>
-                        <!-- séparateur aller-->
-                        <img class="img" src="../static/img/arrow-left.jpg"/>
-                        <!-- section TC-->
-                        <img class="img" src="../static/img/bus.jpg"/>
-                        <!-- séparateur aller-->
-                        <img class="img" src="../static/img/arrow-left.jpg"/>
-                        <!-- section piéton-->
-                        <img class="img" src="../static/img/pieton.jpg"/>
-                            <p>
-                            Retour - Durée: xx minutes
-                        </p>
-                    <div class="center">
-                <hr>
-                <span>
-                    <a data-slide="prev" href="#quote-carousel">PREV</a>
-                    Proposition {{loop.index}}/{{amenities|length}}
-                    <a data-slide="next" href="#quote-carousel">NEXT</a>
-                </span>
+				<hr>
+				<div class="center">
+					<a data-slide="prev" href="#quote-carousel">PREV</a>
+					Proposition {{loop.index}}/{{amenities|length}}
+					<a data-slide="next" href="#quote-carousel">NEXT</a>
+				</div>
+				<hr>
+					<div class="center">
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-right.jpg"/>
+						<!-- section TC-->
+						<img class="img" src="../static/img/bus.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-right.jpg"/>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<p>
+							Aller - Durée: xx minutes
+						</p>
+					</div>
+				<hr>
+					<div>
+						<span><img class="img" src="../static/img/"/>{{ item.type }}: {{ item.name }}</span>
+						<div class="center">
+							{% if item.type == 'bar' or item.type == 'pub' %}
+							<p>
+								Type de bières
+								<ul>
+									<li>bière A</li>
+									<li>bière B</li>
+									<li>bière C</li>
+								</ul>
+							</p>
+							{% endif %}
+							{% if item.type == 'fast_food' %}
+							<p>
+								Type de trucs pas bons
+								<ul>
+									<li>frites sèches</li>
+									<li>coca tiède</li>
+									<li>cheeseburgers mous</li>
+								</ul>
+							</p>
+							{% endif %}
+							{% if item.type == 'restaurant' %}
+							<p>
+								Type de trucs pas bons
+								<ul>
+									<li>entrée</li>
+									<li>plats</li>
+									<li>desserts</li>
+								</ul>
+							</p>
+							{% endif %}
+							{% if item.type == 'cafe' %}
+							<p>
+								Type de trucs pas bons
+								<ul>
+									<li>chaud</li>
+									<li>froid</li>
+								</ul>
+							</p>
+							{% endif %}
+							<p>
+								Horaires ouvertures: hhHmm à hhHmm
+							</p>
+							{% if item.type == 'bar' or item.type == 'pub' %}
+							<p>
+								Happy Hour: hhHmm à hhHmm
+							</p>
+							{% endif %}
+						</div>
+						<a href="map.html" class="btn btn-block btn-primary btn-lg">Voir le détail</a>
+					</div>
+				<hr>
+					<div>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-left.jpg"/>
+						<!-- section TC-->
+						<img class="img" src="../static/img/bus.jpg"/>
+						<!-- séparateur aller-->
+						<img class="img" src="../static/img/arrow-left.jpg"/>
+						<!-- section piéton-->
+						<img class="img" src="../static/img/pieton.jpg"/>
+							<p>
+							Retour - Durée: xx minutes
+						</p>
+					<div class="center">
+				<hr>
+				<span>
+					<a data-slide="prev" href="#quote-carousel">PREV</a>
+					Proposition {{loop.index}}/{{amenities|length}}
+					<a data-slide="next" href="#quote-carousel">NEXT</a>
+				</span>
               </div>
             </blockquote>
           </div>
         {% endfor %}
-      </div>
+      </div>                          
     </div>
-
+      
     </div>
     <footer></footer>
   </body>
