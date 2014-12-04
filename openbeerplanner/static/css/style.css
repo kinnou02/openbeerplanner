@@ -14,17 +14,40 @@ html, body{
 	text-align: center;
 	font-family: Calibri, sans-serif;
 	/*font-size: 14px;
-	line-height: 1.6em;*/
-	
+	line-height: 1.6em;
+	background-color: snow;*/
 }
-
 #main {
-    margin: 20px auto;
-    width: 640px;
-    height: 1136px;
+    /*margin: 20px auto;*/
+    width:  640px;
+	height: device-height;
+    overflow: hidden;
+    background-color: white;
 }
 
- .container.resultat{
+.header {
+    background:#002244 url("../img/headerlol.png") no-repeat;
+    height: 60px;
+}
+
+.footer {
+    background-color: #002244;
+    height: 60px;
+    }
+
+.footer a{
+    color: white;
+    line-height:1.5em;
+    font-size:2em;
+}
+
+
+.navbar-form {
+ padding:0;
+}
+
+
+.container.resultat{
     background: white url("../img/list_main.jpg") no-repeat;
     width: 640px;
     height: 800px;
@@ -99,9 +122,8 @@ html, body{
 	line-height: 4em;
 	width: 100%;
 }
- 
 
- .container.home_text{
+.home_text{
     width: 100%;
 }
 
@@ -226,21 +248,6 @@ html, body{
     margin: auto;
 }
 /* sliders*/
-
-.header {
-    background: white url("../img/headerlol.png") no-repeat;
-    height: 80px;
-}
-
-.footer {
-    background-color: rgb(25, 25, 70);
-    height: 60px;
-}
-.footer a{
-    color: white;
-    line-height:1.5em;
-    font-size:2em;
-}
 
 .range {
     display: table;
@@ -501,4 +508,9 @@ html, body{
 .carousel-control.left {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 100%);
     background-repeat: repeat-x;
+}
+
+#map {
+	height: 800px;
+	width: 640px;
 }

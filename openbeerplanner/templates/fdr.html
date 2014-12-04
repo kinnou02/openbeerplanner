@@ -1,151 +1,152 @@
 <!doctype html>
 
 <html lang="fr">
-   <head>
-    <meta charset="utf-8">
-    <title>New Page</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="../static/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
-    <script src="../static/js/main.js" type="text/javascript"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
-  </head>
+
+  
+	<head>
+		<meta charset="utf-8">
+		<title>{{title}}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="../static/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
+		<script src="../static/js/main.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="../static/css/style.css">
+	</head>
 
   <body>
 	<div id="main"> 
     {% include 'header.html' %}
-    <div class="row overwrite">
-    <div class='col-md-offset-2 col-md-8 overwrite'>
-      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-        <!-- Bottom Carousel Indicators -->
-        <!-- Carousel Slides / Quotes -->
-        <div class="carousel-inner">
+		<div class="row overwrite">
+			<div class='col-md-offset-2 col-md-8 overwrite'>
+			  <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+				<!-- Bottom Carousel Indicators -->
+				<!-- Carousel Slides / Quotes -->
+				<div class="carousel-inner">
 
-        {% for item in amenities %}
-            {% if loop.index == 1 %}
-                <div class="item active sizer">
-            {% else %}
-                <div class="item sizer">
-            {% endif %}
-            <blockquote class="overwrite">
-                <div class="row overwrite">
-                  <div class="center">
-                        <span class="greyheader">Proposition {{loop.index}}/{{amenities|length}}</span>
-                    </div>
-                    <div class="center fdr plan">
-                        <div class="contenair">
-                            {% for mode in item.journey.modes %}
-                            {% if loop.index < 4 %}
-                            {% if loop.index != 1 %}
-                            <img class="img3" src="../static/img/separator.png"/>
-                            {% endif %}
-                            <img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                        {% if item.journey.duration %}
-                        <p>
-                        <span style="margin-left: 50px">Aller - Durée: <b>{{ item.journey.duration }} minutes</b></span>
-                        </p>
-                        {% endif %}
-                    </div>
+				{% for item in amenities %}
+					{% if loop.index == 1 %}
+						<div class="item active sizer">
+					{% else %}
+						<div class="item sizer">
+					{% endif %}
+					<blockquote class="overwrite">
+						<div class="row overwrite">
+						  <div class="center">
+								<span class="greyheader">Proposition {{loop.index}}/{{amenities|length}}</span>
+							</div>
+							<div class="center fdr plan">
+								<div class="contenair">
+									{% for mode in item.journey.modes %}
+									{% if loop.index < 4 %}
+									{% if loop.index != 1 %}
+									<img class="img3" src="../static/img/separator.png"/>
+									{% endif %}
+									<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
+									{% endif %}
+									{% endfor %}
+								</div>
+								{% if item.journey.duration %}
+								<p>
+								<span style="margin-left: 50px">Aller - Durée: <b>{{ item.journey.duration }} minutes</b></span>
+								</p>
+								{% endif %}
+							</div>
 
-                    <div class="center fdr {{ item.type }}">
-                        <span class="texter2"><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
-                    </div>
-                    <div class="center fdr {{ item.type }}">
-                        {% if item.brewery %}
-                        <p>
-                            <B>Type de bières</B>
-                            <ul>
-                                {% for brew in item.brewery %}
-                                <li class="reduced">{{brew}}</li>
-                                {% endfor %}
-                            </ul>
-                        </p>
-                        {% endif %}
-                        {% if item.cuisine %}
-                        <p>
-                            Type de cuisine:
-                            {%if item.cuisine == "spanish" %} espagnole.
-                            {%elif item.cuisine == "italian" %} italienne.
-                            {%elif item.cuisine == "french" %} du coin.
-                            {%elif item.cuisine == "regional" %} du coin.
-                            {%elif item.cuisine == "vietnamese" %} du Vietman.
-                            {%elif item.cuisine == "japanese" %} du Japon !!
-                            {%elif item.cuisine == "chinese" %} chinoise !!
-                            {%elif item.cuisine == "pizza" %} mal bouffe italienne
-                            {%elif item.cuisine == "couscous" %} couscous.
-                            {%elif item.cuisine == "thai" %} thai.
-                            {%elif item.cuisine == "senegalese" %} sénégalaise.
-                            {%else%} pas d'ici en tout cas{% endif %}
-                        </p>
-                        {% endif %}
-                    </div>
+							<div class="center fdr {{ item.type }}">
+								<span class="texter2"><img class="img2" src="../static/img/{{ item.type }}.png"/>{{ item.type }}: {{ item.name }}</span>
+							</div>
+							<div class="center fdr {{ item.type }}">
+								{% if item.brewery %}
+								<p>
+									<B>Type de bières</B>
+									<ul>
+										{% for brew in item.brewery %}
+										<li class="reduced">{{brew}}</li>
+										{% endfor %}
+									</ul>
+								</p>
+								{% endif %}
+								{% if item.cuisine %}
+								<p>
+									Type de cuisine:
+									{%if item.cuisine == "spanish" %} espagnole.
+									{%elif item.cuisine == "italian" %} italienne.
+									{%elif item.cuisine == "french" %} du coin.
+									{%elif item.cuisine == "regional" %} du coin.
+									{%elif item.cuisine == "vietnamese" %} du Vietman.
+									{%elif item.cuisine == "japanese" %} du Japon !!
+									{%elif item.cuisine == "chinese" %} chinoise !!
+									{%elif item.cuisine == "pizza" %} mal bouffe italienne
+									{%elif item.cuisine == "couscous" %} couscous.
+									{%elif item.cuisine == "thai" %} thai.
+									{%elif item.cuisine == "senegalese" %} sénégalaise.
+									{%else%} pas d'ici en tout cas{% endif %}
+								</p>
+								{% endif %}
+							</div>
 
-                        <div class="center fdr {{ item.type }}">
-                        <span class="reduced2">
-                            {% if not item.opening_hours  %}
-                                Horaires ouvertures: NC
-                            {% else %}
-                                Horaires ouvertures: {{ item.opening_hours }}
-                            {% endif %}
-                            </span>
-                            {% if item.house_number and item.street %}
-                                <span class="reduced3">
-                                Adresse: {{ item.house_number }} {{item.street}}.
-                                </span>
-                            {% endif %}
-                        </div>
-                        {% if item.is_happy_hours %}
-                        <div class="center fdr happyhours">
-                        <p>
-                            <span class="happyhourstext">Maintenant, pour encore {{ item.end_happy_hours }} minutes!</span>
-                        </p>
-                        </div>
-                        {% endif %}
+								<div class="center fdr {{ item.type }}">
+								<span class="reduced2">
+									{% if not item.opening_hours  %}
+										Horaires ouvertures: NC
+									{% else %}
+										Horaires ouvertures: {{ item.opening_hours }}
+									{% endif %}
+									</span>
+									{% if item.house_number and item.street %}
+										<span class="reduced3">
+										Adresse: {{ item.house_number }} {{item.street}}.
+										</span>
+									{% endif %}
+								</div>
+								{% if item.is_happy_hours %}
+								<div class="center fdr happyhours">
+								<p>
+									<span class="happyhourstext">Maintenant, pour encore {{ item.end_happy_hours }} minutes!</span>
+								</p>
+								</div>
+								{% endif %}
 
-                    <div class="center fdr map"><a href="/map/{{item.id}}" class="gotomap">
-                        </a>
-                    </div>
-                    <div class="center fdr plan">
-                        <div class="contenair">
-                            {% for mode in item.journey.modes %}
-                            {% if loop.index < 4 %}
-                            {% if loop.index != 1 %}
-                            <img class="img3" src="../static/img/reverseseparator.png"/>
-                            {% endif %}
-                            {% if mode|lower == 'walking' %}
-                            <img  class="img3"  src="../static/img/reverse{{mode|lower}}.png"/>
-                            {% else %}
-                            <img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
-                            {% endif %}
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                        {% if item.journey.duration %}
-                        <p>
-                        <span style="margin-left: 50px">Retour - Durée: <b>{{ item.journey.duration }} minutes</b></span>
-                        </p>
-                        {% endif %}
-                    </div>
-                    <div class="center">
-                        <span>
-                            <span class="greyheader">Proposition {{loop.index}}/{{amenities|length}}</span>
-                        </span>
-                    </div>
-            </blockquote>
-        </div>
-        {% endfor %}
+							<div class="center fdr map"><a href="/map/{{item.id}}" class="gotomap">
+								</a>
+							</div>
+							<div class="center fdr plan">
+								<div class="contenair">
+									{% for mode in item.journey.modes %}
+									{% if loop.index < 4 %}
+									{% if loop.index != 1 %}
+									<img class="img3" src="../static/img/reverseseparator.png"/>
+									{% endif %}
+									{% if mode|lower == 'walking' %}
+									<img  class="img3"  src="../static/img/reverse{{mode|lower}}.png"/>
+									{% else %}
+									<img  class="img3"  src="../static/img/{{mode|lower}}.png"/>
+									{% endif %}
+									{% endif %}
+									{% endfor %}
+								</div>
+								{% if item.journey.duration %}
+								<p>
+								<span style="margin-left: 50px">Retour - Durée: <b>{{ item.journey.duration }} minutes</b></span>
+								</p>
+								{% endif %}
+							</div>
+							<div class="center">
+								<span>
+									<span class="greyheader">Proposition {{loop.index}}/{{amenities|length}}</span>
+								</span>
+							</div>
+					</blockquote>
+				</div>
+				{% endfor %}
 
-
-        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
-      </div>
-    </div>
-    </div>
+				<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+				<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+			  </div>
+			</div>
+		</div>
     </div>
 
     {% include 'footer.html' %}
