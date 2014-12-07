@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    <div class="container resultat">
+    <div class="list-results">
       <ul class="list-group">
-		  <li class="list_list"><a href="/fdr/bar">{{ counters['bar']}}</a><br/>Propositions</li>
+		  <li id="list-bar" class="list_list"><a href="/fdr/bar">{{ counters['bar']}}</a><br/>Propositions</li>
 			  <!-- les pubs ne sont pas adressés. C'est dommage !-->
-		  <li class="list_list"><a href="/fdr/restaurant">{{ counters['restaurant']}}</a><br/>Propositions</li>
-		  <li class="list_list"><a href="/fdr/fast_food">{{ counters['fast_food']}}</a><br/>Propositions</li>
-		  <li class="list_list"><a href="/fdr/cafe">{{ counters['cafe']}}</a><br/>Propositions</li>
+		  <li id="list-restaurant" class="list_list"><a href="/fdr/restaurant">{{ counters['restaurant']}}</a><br/>Propositions</li>
+		  <li id="list-fast_food" class="list_list"><a href="/fdr/fast_food">{{ counters['fast_food']}}</a><br/>Propositions</li>
+		  <li id="list-cafe" class="list_list"><a href="/fdr/cafe">{{ counters['cafe']}}</a><br/>Propositions</li>
 		</ul>
     </div>
     
