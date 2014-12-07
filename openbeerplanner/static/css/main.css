@@ -1,0 +1,131 @@
+/*
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+*/
+
+/* ================================
+General
+================================= */
+html, body, h1, ul, li {
+	margin:0;
+	padding:0;
+}
+
+html, body {
+	text-align: center;
+	font-family: Calibri, sans-serif;
+	font-size: 1em;
+/*
+	font-family: Roboto, Calibri, sans-serif;
+*/
+}
+
+a {	text-decoration: none; }
+
+#wrapper {
+    width: device-width;
+    max-width: 960px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.bone {	
+	background-color: #002244;
+	color: white;
+    line-height: 2em;
+}
+
+/*
+.footer{
+	width: 100%;
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+*/
+
+
+.footer a {
+	color: white;
+	font-size: .8em;
+}
+
+
+.header {
+	background-image: url("../img/hango-logo-256.png");
+	background-size: 2em 2em;
+    background-repeat: no-repeat;
+    background-position: 98% top;
+}
+
+.header #backtohome { 
+	display:inline-block; 
+	height: 2em; 
+	width: 2em;
+	float: left;
+	margin-left: 2%;
+	background-image: url("../img/home.png");
+	background-size: 2em 2em;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+
+.header h1{
+    margin-left: 33%;
+}
+
+/* ================================
+Home
+================================= */
+.home{
+    margin: 2% 0;
+}
+
+.home1{   
+    min-height: 15em;   
+}
+	.home1 .groles{    
+		height: 5em;
+		background: white url("../img/shoes-trans.png") no-repeat;
+		background-size: 80%;
+		background-position: center top;
+	}
+
+
+.home2{
+    background-color: #009999;
+    color: white;
+    line-height: 3em;
+}
+
+.home3{
+	color: white;
+    background-color: #FF9900;
+}
+	.home3 a{
+		line-height: 5em;
+	}
+	
+/* ================================
+List
+================================= */
+.list-results li{
+  height: 8em;
+  margin: 0.2em 0;
+}
+
+.list-results #list-bar{
+	background-color: red;
+}
+
+.list-results #list-restaurant{
+	background-color: navy;
+}
+
+.list-results #list-fast_food{
+	background-color: green;
+}
+
+.list-results #list-cafe{
+	background-color: orange;
+}
